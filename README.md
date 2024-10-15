@@ -1,4 +1,4 @@
-# tfe-alezia
+# alezia
 
 ## Project setup
 ```
