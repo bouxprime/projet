@@ -1,0 +1,22 @@
+import { reactive } from 'vue';
+
+export const eventBus = reactive({
+  items: [
+    { image: require('@/assets/tom1.png'), name: 'Ana Páris', role: 'Responsable Administrative', description: 'Ana est responsable de la supervision de toutes les fonctions administratives de l\'organisation.', currentProject: 'Refonte du système RH interne', skills: 'Administration, Gestion, RH', experience: '10 ans d\'expérience dans des rôles administratifs' },
+    { image: require('@/assets/tom1.png'), name: 'John Doe', role: 'Responsable Marketing', description: 'John dirige l\'équipe marketing et développe des stratégies pour accroître la notoriété de la marque.', currentProject: 'Lancement d\'une nouvelle gamme de produits', skills: 'Marketing, Stratégie, Branding', experience: '12 ans d\'expérience en marketing' },
+    { image: require('@/assets/tom1.png'), name: 'Jane Smith', role: 'Responsable des Ventes', description: 'Jane supervise l\'équipe des ventes et travaille à atteindre les objectifs de vente.', currentProject: 'Expansion sur de nouveaux marchés', skills: 'Ventes, Négociation, Recherche de marché', experience: '8 ans d\'expérience en vente' },
+    { image: require('@/assets/tom1.png'), name: 'Paul White', role: 'Responsable RH', description: 'Paul est en charge des ressources humaines et des relations avec les employés.', currentProject: 'Mise en place de nouvelles politiques RH', skills: 'RH, Relations avec les employés, Recrutement', experience: '9 ans d\'expérience en RH' },
+    { image: require('@/assets/tom1.png'), name: 'Eva Green', role: 'Responsable Design', description: 'Eva dirige l\'équipe de design et travaille sur la conception de produits et le branding.', currentProject: 'Conception de la nouvelle interface utilisateur pour l\'application', skills: 'Design, UI/UX, Branding', experience: '11 ans d\'expérience en design' },
+    { image: require('@/assets/tom1.png'), name: 'George Black', role: 'Responsable IT', description: 'George supervise le département informatique et gère les ressources technologiques.', currentProject: 'Mise à niveau de l\'infrastructure réseau', skills: 'IT, Réseautique, Sécurité', experience: '15 ans d\'expérience en IT' },
+    { image: require('@/assets/tom1.png'), name: 'Anna Brown', role: 'Responsable Financier', description: 'Anna gère les aspects financiers de l\'entreprise.', currentProject: 'Audit financier et conformité', skills: 'Finance, Comptabilité, Audit', experience: '13 ans d\'expérience en finance' },
+    { image: require('@/assets/tom1.png'), name: 'Mike Blue', role: 'Responsable Support', description: 'Mike dirige l\'équipe de support client et assure la satisfaction des clients.', currentProject: 'Mise en œuvre d\'un nouveau système de ticketing', skills: 'Support client, CRM, Communication', experience: '7 ans d\'expérience en support client' }
+  ],
+  news: [
+    { image: 'blog1.png', title: 'Wildix verticalise ses offres', description: 'Wildix verticalise ses offres dans le secteur des télécoms.', link: 'https://www.edi-mag.fr/telecom/wildix-verticalise-ses-offres/' },
+    { image: 'blog2.png', title: 'Wildix reconnu comme Niche Player dans le Gartner® Magic Quadrant™ 2023', description: 'Wildix reconnu comme Niche Player dans le Gartner.', link: 'https://www.wildix.com/fr/wildix-reconnaissance-gartner-magic-quadrant-2023-ucaas/' },
+    { image: 'blog3.png', title: 'Cybersécurité : faites le choix des services managés', description: 'Cybersécurité et services managés.', link: 'https://www.pwc.fr/fr/vos-enjeux/cyber-intelligence/cybersecurite-des-services-manages.html' },
+    { image: 'blog4.png', title: 'Services Managés : l’allié invisible de la performance entreprise', description: 'Services Managés, un atout pour l\'entreprise.', link: 'https://pme-eti.fr/services-manages-lallie-invisible-de-la-performance-entreprise/' },
+    { image: 'blog1.png', title: 'Malgré les coûts élevés, la moitié des organisations refusent d’accroître leur budget de sécurité', description: 'Sécurité et budget dans les entreprises.', link: 'https://datanews.levif.be/actualite/securite/fuites-donnees/malgre-les-couts-eleves-la-moitie-des-organisations-aux-prises-avec-des-fuites-de-donnees-refusent-daccroitre-leur-budget-de-securite/' },
+    { image: 'blog2.png', title: 'L’A6K tient l’avenir dans le creux de sa main', description: 'L\'A6K et l\'avenir de la technologie.', link: 'https://www.telesambre.be/info/economie/la6k-tient-lavenir-dans-le-creux-de-sa-main/64067' },
+  ]
+});
