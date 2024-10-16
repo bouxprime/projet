@@ -9,14 +9,11 @@
       <div class="right-section">
         <div class="social">
           <h3>Nos réseaux</h3>
-          <a href="https://www.tiktok.com" target="_blank">
-            <i class="fab fa-tiktok"></i> TikTok
+          <a href="https://fr.linkedin.com/company/alezia" target="_blank">
+            <i class="fab fa-linkedin"></i> LinkedIn
           </a>
           <a href="https://www.facebook.com" target="_blank">
             <i class="fab fa-facebook"></i> Facebook
-          </a>
-          <a href="https://www.linkedin.com" target="_blank">
-            <i class="fab fa-linkedin"></i> LinkedIn
           </a>
         </div>
         <div class="contact" ref="contactSection">
@@ -24,6 +21,13 @@
           <p><i class="fas fa-phone-alt"></i> 
             <a href="tel:+3271962182" class="phone-link">+32 71 96 21 82</a>
           </p>
+          <p><i class="fas fa-envelope"></i> 
+            <a href="/contact" class="email-link">info@alezia.be</a>
+          </p>
+        </div>
+        <div class="terms">
+          <h3>Conditions générales</h3>
+          <a href="/conditions-generales" class="terms-link">Voir nos conditions générales</a>
         </div>
       </div>
     </div>
@@ -35,28 +39,28 @@
 export default {
   name: 'AppFooter',
   mounted() {
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        this.$refs.separator.classList.add('animate-growVertical');
-      }
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          this.$refs.separator.classList.add('animate-growVertical');
+        }
+      });
     });
-  });
 
-  observer.observe(this.$refs.footer);
-  // Load Google Maps
-  if (typeof google !== 'undefined') {
-    this.initMap();
-  } else {
-    const script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap`;
-    script.async = true;
-    script.defer = true; // Ajout de defer pour le chargement asynchrone
-    document.head.appendChild(script);
+    observer.observe(this.$refs.footer);
+    // Load Google Maps
+    if (typeof google !== 'undefined') {
+      this.initMap();
+    } else {
+      const script = document.createElement('script');
+      script.src = `https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap`;
+      script.async = true;
+      script.defer = true; // Ajout de defer pour le chargement asynchrone
+      document.head.appendChild(script);
 
-    window.initMap = this.initMap;
-  }
-},
+      window.initMap = this.initMap;
+    }
+  },
   methods: {
     /* eslint-disable no-unused-vars */
     initMap() {
@@ -70,7 +74,6 @@ export default {
     /* eslint-enable no-unused-vars */
   }
 }
-
 </script>
 
 <style>
@@ -130,7 +133,7 @@ footer {
   margin-left: 1em; /* Add space between separator and right part */
 }
 
-.social, .contact {
+.social, .contact, .terms {
   display: flex;
   flex-direction: column;
   align-items: flex-start; /* Align items to the left */
@@ -140,11 +143,11 @@ footer {
   margin-right: 1em; /* Reduce space between "Nos réseaux" and "Nous contacter" */
 }
 
-.contact h3, .social h3 {
+.contact h3, .social h3, .terms h3 {
   margin-bottom: 0.5em; /* Add space below titles */
 }
 
-.contact p, .social a {
+.contact p, .social a, .terms a {
   margin-bottom: 0.5em; /* Add space between items */
 }
 
@@ -159,16 +162,16 @@ footer {
   margin-right: 0.5em; /* Add space between icon and text */
 }
 
-.social a:hover {
+.social a:hover, .terms a:hover {
   text-decoration: underline;
 }
 
-.phone-link {
+.phone-link, .email-link, .terms-link {
   color: white;
   text-decoration: none;
 }
 
-.phone-link:hover {
+.phone-link:hover, .email-link:hover {
   text-decoration: underline;
 }
 
@@ -201,11 +204,11 @@ footer {
     display: none; /* Hide the separator on small screens */
   }
 
-  .social, .contact {
+  .social, .contact, .terms {
     align-items: center;
   }
 
-  .social a, .contact p {
+  .social a, .contact p, .terms a {
     text-align: center;
   }
 }

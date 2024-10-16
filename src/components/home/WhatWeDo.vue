@@ -45,7 +45,7 @@
           <div class="card">
             <router-link :to="{ name: 'XHopperPage' }">
               <div class="card-icon">📡</div>
-              <h3>X-Hopper</h3>
+              <h3>X-Hoppers</h3>
               <p>Optimisez votre réseau téléphonique avec X-Hopper.</p>
             </router-link>
           </div>

@@ -2,13 +2,11 @@
   <section class="company-presentation">
     <div class="container">
       <div class="image-container">
-        <img src="@/assets/tom1.png" alt="Person Image" class="person-image" />
+        <img src="@/assets/histoire-alezia.png" alt="Person Image" class="person-image" />
       </div>
       <div class="text-container">
         <h2>L'histoire d'Alezia</h2>
         <p class="description">En 52 avant notre ère, Gaulois et Romains s'affrontent lors du siège d'<strong>Alésia</strong>, un épisode décisif de la guerre des Gaules. Malgré une situation critique, encerclés par deux armées gauloises et en infériorité numérique, les troupes romaines remportent pourtant cette bataille finale. Et attribuer cette victoire à la chance ou au hasard serait une erreur d’appréciation. Jules César, fin observateur, exploite les spécificités du terrain pour inverser le cours des événements, révélant ainsi son talent exceptionnel pour la stratégie, l'innovation et sa détermination sans faille.
-
-
 
 Plus de 2000 ans plus tard, bien loin des champs de bataille, la société Alezia mène son propre combat pour accompagner au mieux ses partenaires. C’est en s’appuyant sur ces mêmes valeurs – observation, stratégie, innovation et détermination – qu’Alezia puise la force nécessaire pour mener à bien ses missions.</p>
         <p class="founder-info"> Alezia, Co-Fondateur</p>
@@ -22,8 +20,24 @@ Plus de 2000 ans plus tard, bien loin des champs de bataille, la société Alezi
 
 <script>
 export default {
-  name: 'CompanyPresentation'
-}
+  name: 'CompanyPresentation',
+  mounted() {
+    const observer = new IntersectionObserver((entries) => {
+      setTimeout(() => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+          }
+        });
+      }, 200);
+    });
+    const image = this.$el.querySelector('.person-image');
+    if (image) {
+      observer.observe(image);
+    }
+  },
+};
 </script>
 
 <style scoped>
@@ -45,7 +59,6 @@ export default {
   left: 10%;
   width: 100%;
   height: 100%;
-  background: url('@/assets/dotted1.png') no-repeat center center;
   background-size: contain;
   opacity: 0.6;
   transform: translate(-50%, -50%);
@@ -67,25 +80,32 @@ export default {
   text-align: center;
   position: relative;
   z-index: 3;
-  margin-left: 5em; /* Décale l'image vers la droite */
+  margin-left: -2em; /* Déplace l'image plus vers la gauche */
 }
 .person-image {
   width: 100%;
-  max-width: 490px;
+  max-width: 800px;
   height: auto;
   margin-top: 20px;
-  margin-bottom: -97px; /* Assure que l'image touche la section suivante */
+  margin-bottom: -50px; /* Assure que l'image touche la section suivante */
   border: none;
   z-index: 4;
   position: relative;
   border-radius: 5%;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease-in-out;
+}
+.person-image.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 .text-container {
   flex: 2;
-  max-width: 60%;
+  max-width: 55%;
   padding: 1em;
   text-align: left;
-  margin-left: 6em; /* Décale le texte vers la droite */
+  margin-left: 1em; /* Ajuste le décalage du texte */
 }
 .text-container h2 {
   font-size: 2.8em;
@@ -104,6 +124,18 @@ export default {
   color: #1e90ff;
   margin-top: 1em;
   font-family: 'Poppins', serif;
+}
+
+/* Animation Trigger on Scroll */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Media Queries */
@@ -184,3 +216,4 @@ export default {
   background-color: #000;
 }
 </style>
+

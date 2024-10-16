@@ -13,6 +13,7 @@ import XBeesPage from '../views/X-beesPage.vue';
 import XHopperPage from '../views/X-hopperPage.vue';
 import AleziaStudioPage from '../views/AleziaStudioPage.vue';
 import AproposPage from '../views/AproposPage.vue'; // <-- Ajout de l'importation
+import ConditionGeneral from '../views/ConditionGeneral.vue'; // <-- Ajout de l'importation pour Conditions Générales
 
 const routes = [
   {
@@ -81,9 +82,14 @@ const routes = [
     component: AleziaStudioPage,
   },
   {
-    path: '/apropos',  // <-- Ajout de la nouvelle route
+    path: '/apropos',
     name: 'AproposPage',
     component: AproposPage,
+  },
+  {
+    path: '/conditions-generales', // <-- Nouvelle route pour Conditions Générales
+    name: 'ConditionGeneral',
+    component: ConditionGeneral,
   },
 ];
 
