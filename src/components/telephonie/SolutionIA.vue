@@ -40,7 +40,7 @@ body {
   text-align: center;
   padding: 6rem 2rem;
   font-family: 'Poppins', sans-serif;
-  background-color: #f9f9f9;
+  background: linear-gradient(180deg, #cde8ff 0%, #a5d3ff 100%);
   border-radius: 15px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   max-width: 800px;

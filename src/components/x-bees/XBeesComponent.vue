@@ -6,8 +6,8 @@
     <!-- Section 1: Analyse des conversations avec l'IA -->
     <section class="additional-content">
       <div class="content-wrapper">
-        <div class="image-container reverse-animation">
-          <img src="@/assets/xbees/x-bees-analyse-des-conversations-avec-IA.webp" alt="Analyse des conversations avec l'IA" class="overflow-image reduced-size" />
+        <div class="image-container animated-image-1">
+          <img ref="image1" src="@/assets/xbees/x-bees-analyse-des-conversations-avec-IA.webp" alt="Analyse des conversations avec l'IA" class="overflow-image reduced-size" />
         </div>
         <div class="text-content">
           <h2>Analyse des conversations avec l'IA</h2>
@@ -23,8 +23,8 @@
           <h2>Automatisation des tâches</h2>
           <p>Grâce à l'intégration de l'IA, X-bees peut automatiser certaines tâches répétitives, telles que la gestion des tickets de support ou la classification des demandes clients. Cela permet aux équipes de se concentrer sur des tâches à plus forte valeur ajoutée et d'optimiser la gestion du temps.</p>
         </div>
-        <div class="image-container animated-image">
-          <img src="@/assets/xbees/x-bees-automatisation-des-tâches.webp" alt="Automatisation des tâches" class="overflow-image" />
+        <div class="image-container animated-image-2">
+          <img ref="image2" src="@/assets/xbees/x-bees-automatisation-des-tâches.webp" alt="Automatisation des tâches" class="overflow-image" />
         </div>
       </div>
     </section>
@@ -32,8 +32,8 @@
     <!-- Section 3: Analyse prédictive -->
     <section class="additional-content">
       <div class="content-wrapper">
-        <div class="image-container reverse-animation">
-          <img src="@/assets/xbees/x-bees-analyse-prédictive.webp" alt="Analyse prédictive" class="overflow-image" />
+        <div class="image-container animated-image-3">
+          <img ref="image3" src="@/assets/xbees/x-bees-analyse-prédictive.webp" alt="Analyse prédictive" class="overflow-image" />
         </div>
         <div class="text-content">
           <h2>Analyse prédictive</h2>
@@ -49,8 +49,8 @@
           <h2>Sentiment Analysis</h2>
           <p>L'IA de X-bees peut analyser le ton et l'émotion dans les conversations écrites ou vocales pour détecter l'humeur des clients (positif, neutre, négatif). Cette analyse des sentiments permet aux agents de mieux adapter leur approche en fonction de l'état émotionnel des clients, augmentant ainsi la satisfaction et la qualité du service.</p>
         </div>
-        <div class="image-container animated-image">
-          <img src="@/assets/xbees/x-bees-sentiment-analysis.webp" alt="Sentiment Analysis" class="overflow-image" />
+        <div class="image-container animated-image-4">
+          <img ref="image4" src="@/assets/xbees/x-bees-sentiment-analysis.webp" alt="Sentiment Analysis" class="overflow-image" />
         </div>
       </div>
     </section>
@@ -58,8 +58,41 @@
 </template>
 
 <script>
+import { nextTick } from 'vue';
+
 export default {
   name: 'XBeesComponent',
+  mounted() {
+    nextTick(() => {
+      const images = [
+        this.$refs.image1,
+        this.$refs.image2,
+        this.$refs.image3,
+        this.$refs.image4
+      ];
+
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.3
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target); // Pour éviter de ré-observer une fois l'animation déclenchée
+          }
+        });
+      }, observerOptions);
+
+      images.forEach(image => {
+        if (image) {
+          observer.observe(image);
+        }
+      });
+    });
+  }
 };
 </script>
 
@@ -69,7 +102,7 @@ export default {
 .x-bees {
   padding: 4rem 2rem;
   padding-top: 8rem;
-  background-color: #f9f9f9;
+  background-color: #f0f4f8;
 }
 
 .x-bees h2 {
@@ -90,9 +123,7 @@ export default {
   padding: 4rem 2rem;
   position: relative;
   background-color: #ffffff;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  margin-bottom: 4rem; /* Ajout d'espace entre les sections */
+  margin-bottom: 4rem;
 }
 
 .content-wrapper {
@@ -125,31 +156,29 @@ export default {
   display: flex;
   justify-content: center;
   overflow: visible;
+  transition: transform 1s ease-in-out;
 }
 
-.image-container.animated-image {
-  transform: perspective(800px) rotateY(-5deg); /* Animation pour les images à droite */
+.image-container.animated-image-1.in-view {
+  transform: translateY(-20px) rotate(5deg);
 }
 
-.reverse-animation {
-  transform: perspective(800px) rotateY(5deg); /* Animation inversée pour les images à gauche */
+.image-container.animated-image-2.in-view {
+  transform: scale(1.1);
 }
 
-.image-container img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 15px;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+.image-container.animated-image-3.in-view {
+  transform: rotateY(20deg);
 }
 
-.image-container img.reduced-size {
-  max-width: 70%; /* Réduction supplémentaire de la taille de la première image */
+.image-container.animated-image-4.in-view {
+  transform: translateX(20px);
 }
 
 .overflow-image {
   position: relative;
   width: 100%;
-  left: 0; /* Images alignées sans dépasser le texte */
+  left: 0;
 }
 
 .reverse {
@@ -162,7 +191,8 @@ export default {
     gap: 1rem;
   }
 
-  .text-content, .image-container {
+  .text-content,
+  .image-container {
     width: 100%;
   }
 

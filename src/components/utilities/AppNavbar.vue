@@ -3,7 +3,7 @@
     <div class="navbar-container">
       <div :class="{'logo': true, 'scrolled': isScrolled || !isHomePage}">
         <router-link to="/">
-          <img src="@/assets/Alezia-logo-blanc.png" alt="Logo" />
+          <img :src="getLogoSrc()" alt="Logo" />
         </router-link>
       </div>
       <ul :class="{'nav-links': true, 'open': isMenuOpen, 'about-page': isAboutPage && !isScrolled, 'contact-page': isContactPage && !isScrolled, 'services-page': isServicesPage && !isScrolled}">
@@ -95,6 +95,9 @@ export default {
     },
     isActive(route) {
       return this.$route.path.startsWith(route);
+    },
+    getLogoSrc() {
+      return this.isScrolled || !this.isHomePage ? require('@/assets/Alezia-logo-noir.png') : require('@/assets/Alezia-logo-blanc.png');
     }
   },
   mounted() {
@@ -105,6 +108,8 @@ export default {
   }
 }
 </script>
+
+
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');

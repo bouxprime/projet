@@ -12,7 +12,7 @@
           <a href="https://fr.linkedin.com/company/alezia" target="_blank">
             <i class="fab fa-linkedin"></i> LinkedIn
           </a>
-          <a href="https://www.facebook.com" target="_blank">
+          <a href="https://www.facebook.com/profile.php?id=61565797364097&locale=fr_FR" target="_blank">
             <i class="fab fa-facebook"></i> Facebook
           </a>
         </div>

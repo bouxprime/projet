@@ -2,13 +2,18 @@
   <section class="hero ma-section">
     <h1>Alezia Studio</h1>
     <p>Alezia Studio vous permet de configurer facilement la messagerie vocale de votre entreprise. Sélectionnez une voix, choisissez une musique d'attente, et personnalisez les messages pour vos clients. Recevez ensuite votre configuration par mail, prête à être intégrée dans votre système de téléphonie.</p>
-    <button class="main-button">Commencer</button>
+    <button class="main-button" @click="openNewTab">Commencer</button>
   </section>
 </template>
 
 <script>
 export default {
   name: 'AleziaStudioPage',
+  methods: {
+    openNewTab() {
+      window.open('https://alezia.annoncetelephonique.com', '_blank');
+    },
+  },
 };
 </script>
 

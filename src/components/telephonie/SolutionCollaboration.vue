@@ -1,16 +1,13 @@
 <template>
   <div>
-    <!-- Ajout du composant Wave3 en haut -->
-    <Wave3Component class="full-width-wave" />
-
     <section class="collaboration">
       <h2>Collaboration</h2>
       <p class="description">Une application multi-usages :</p>
 
       <!-- Section 1 -->
-      <section class="additional-content">
+      <section class="additional-content" style="background: linear-gradient(180deg, #cde8ff 0%, #a5d3ff 100%);">
         <div class="content-wrapper">
-          <div class="image-container reverse-animation">
+          <div class="image-container animate-from-top rotate-left">
             <img src="@/assets/collab/collab8.jpg" alt="Interface unifiée" class="overflow-image reduced-size" />
           </div>
           <div class="text-content">
@@ -21,27 +18,22 @@
       </section>
 
       <!-- Section 2 -->
-      <section class="additional-content reverse">
+      <section class="additional-content reverse" style="background: linear-gradient(180deg, #cde8ff 0%, #a5d3ff 100%);">
         <div class="content-wrapper">
           <div class="text-content">
             <h2>Appels et gestion des contacts</h2>
             <p>Les utilisateurs peuvent gérer facilement leurs communications téléphoniques grâce à l'intégration VoIP (Voice over IP). Ils peuvent passer et recevoir des appels directement depuis l'interface de Wildix Collaboration. En plus de la gestion des appels, les utilisateurs ont accès à un annuaire de contacts centralisé, peuvent consulter l'historique des appels et retrouver rapidement les informations de leurs collègues ou clients. La synchronisation avec les contacts d'autres outils ou CRM est également possible, facilitant la gestion des relations professionnelles.</p>
           </div>
-          <div class="image-container animated-image">
+          <div class="image-container animate-scale-up">
             <img src="@/assets/collab/collab2.jpg" alt="Appels et gestion des contacts" class="overflow-image reduced-size" />
           </div>
         </div>
       </section>
 
-      <!-- Ajout de la Wave1 après la section 2 -->
-      <div class="wave-spacing">
-        <Wave3Component class="full-width-wave" />
-      </div>
-
       <!-- Section 3 -->
-      <section class="additional-content">
+      <section class="additional-content" style="background: linear-gradient(180deg, #cde8ff 0%, #a5d3ff 100%);">
         <div class="content-wrapper">
-          <div class="image-container reverse-animation">
+          <div class="image-container animate-from-top rotate-left">
             <img src="@/assets/collab/collab3.jpg" alt="Chat en temps réel" class="overflow-image" />
           </div>
           <div class="text-content">
@@ -52,27 +44,22 @@
       </section>
 
       <!-- Section 4 -->
-      <section class="additional-content reverse">
+      <section class="additional-content reverse" style="background: linear-gradient(180deg, #cde8ff 0%, #a5d3ff 100%);">
         <div class="content-wrapper">
           <div class="text-content">
             <h2>Partage de fichiers et de documents</h2>
             <p>Le partage de fichiers est une fonctionnalité essentielle dans un environnement de travail collaboratif. Avec Wildix Collaboration, les utilisateurs peuvent facilement envoyer des fichiers et documents dans les chats ou lors de visioconférences. Cela permet un partage instantané des informations et des documents importants, simplifiant ainsi le travail d'équipe et la collaboration sur des projets en temps réel, sans avoir à passer par des emails ou des outils externes.</p>
           </div>
-          <div class="image-container animated-image">
+          <div class="image-container animate-scale-up">
             <img src="@/assets/collab/collab4.jpg" alt="Partage de fichiers" class="overflow-image reduced-size" />
           </div>
         </div>
       </section>
 
-      <!-- Ajout de la Wave2 après la section 4 -->
-      <div class="wave-spacing">
-        <Wave2Component class="full-width-wave" />
-      </div>
-
       <!-- Section 5 -->
-      <section class="additional-content">
+      <section class="additional-content" style="background: linear-gradient(180deg, #cde8ff 0%, #a5d3ff 100%);">
         <div class="content-wrapper">
-          <div class="image-container reverse-animation">
+          <div class="image-container animate-from-top rotate-left">
             <img src="@/assets/collab/collab5.jpg" alt="Vidéo et conférences audio" class="overflow-image reduced-size" />
           </div>
           <div class="text-content">
@@ -83,27 +70,22 @@
       </section>
 
       <!-- Section 6 -->
-      <section class="additional-content reverse">
+      <section class="additional-content reverse" style="background: linear-gradient(180deg, #cde8ff 0%, #a5d3ff 100%);">
         <div class="content-wrapper">
           <div class="text-content">
             <h2>Présence et disponibilité</h2>
             <p>Un des atouts majeurs de Wildix Collaboration est l'affichage en temps réel de la disponibilité des collaborateurs. Les utilisateurs peuvent voir si un collègue est disponible, en réunion, absent, ou occupé. Cela permet de planifier la communication plus efficacement et d'éviter d'interrompre les collaborateurs pendant des moments inopportuns. La visibilité sur le statut de chaque personne aide également à réduire les délais d'attente pour des réponses ou des prises de décision.</p>
           </div>
-          <div class="image-container animated-image">
-            <img src="@/assets/collab/collab6.jpg" alt="Présence et disponibilité" class="overflow-image reduced-size" />
+          <div class="image-container animate-scale-up">
+            <img src="@/assets/collab/collab6.jpg" alt="Présence et disponibilité" class="overflow-image" />
           </div>
         </div>
       </section>
 
-      <!-- Ajout de la Wave3 après la section 6 -->
-      <div class="wave-spacing">
-        <Wave3Component class="full-width-wave" />
-      </div>
-
       <!-- Section 7 -->
-      <section class="additional-content">
+      <section class="additional-content" style="background: linear-gradient(180deg, #cde8ff 0%, #a5d3ff 100%);">
         <div class="content-wrapper">
-          <div class="image-container reverse-animation">
+          <div class="image-container animate-from-top rotate-left">
             <img src="@/assets/collab/collab7.jpg" alt="Intégration et API" class="overflow-image" />
           </div>
           <div class="text-content">
@@ -115,14 +97,14 @@
       </section>
 
       <!-- Section 8 -->
-      <section class="additional-content reverse">
+      <section class="additional-content reverse" style="background: linear-gradient(180deg, #cde8ff 0%, #a5d3ff 100%);">
         <div class="content-wrapper">
           <div class="text-content">
             <h2>Sécurité et cloud</h2>
             <p>Wildix Collaboration est une solution entièrement hébergée dans le cloud, ce qui signifie que les entreprises bénéficient d'une grande flexibilité et d'une haute disponibilité des services sans avoir à gérer une infrastructure locale. La plateforme respecte les normes de sécurité les plus strictes pour garantir la protection des données et des communications. Des mécanismes avancés de chiffrement sont utilisés pour assurer la confidentialité des informations échangées, tout en offrant une performance stable et une résilience face aux pannes.</p>
           </div>
-          <div class="image-container animated-image">
-            <img src="@/assets/collab/collab1.jpg" alt="Sécurité et cloud" class="overflow-image" />
+          <div class="image-container animate-scale-up">
+            <img src="@/assets/collab/collab1.png" alt="Sécurité et cloud" class="overflow-image" />
           </div>
         </div>
       </section>
@@ -131,14 +113,19 @@
 </template>
 
 <script>
-import Wave3Component from '@/components/utilities/wave3.vue'; // Assurez-vous que le chemin est correct
-import Wave2Component from '@/components/utilities/wave2.vue';
-
 export default {
   name: 'SolutionCollaboration',
-  components: {
-    Wave3Component, // Enregistrement du composant
-    Wave2Component,
+  mounted() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        }
+      });
+    }, { threshold: 0.8 });
+
+    const animatedElements = document.querySelectorAll('.image-container');
+    animatedElements.forEach((el) => observer.observe(el));
   }
 };
 </script>
@@ -172,7 +159,6 @@ body {
 .additional-content {
   padding: 4rem 2rem;
   position: relative;
-  background-color: #ffffff;
   border-radius: 15px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   margin-bottom: 4rem;
@@ -215,12 +201,36 @@ body {
   overflow: visible;
 }
 
-.image-container.animated-image {
-  transform: perspective(800px) rotateY(-5deg);
+.image-container.animate-from-left {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 1.5s ease, transform 1.5s ease;
 }
 
-.image-container.reverse-animation {
-  transform: perspective(800px) rotateY(5deg);
+.image-container.animate-from-right {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.image-container.animate-from-top {
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.image-container.animate-scale-up {
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.image-container.animate-from-left.in-view,
+.image-container.animate-from-right.in-view,
+.image-container.animate-from-top.in-view,
+.image-container.animate-scale-up.in-view {
+  opacity: 1;
+  transform: translateX(0) translateY(0) scale(1);
 }
 
 .image-container img {
@@ -228,6 +238,20 @@ body {
   height: auto;
   border-radius: 15px;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+  transform: perspective(1000px) rotateY(-10deg);
+  transition: transform 1s ease;
+}
+
+.image-container.rotate-left img {
+  transform: perspective(1000px) rotateY(10deg);
+}
+
+.image-container.in-view img {
+  transform: perspective(1000px) rotateY(-10deg);
+}
+
+.image-container.rotate-left.in-view img {
+  transform: perspective(1000px) rotateY(10deg);
 }
 
 .image-container img.reduced-size {
@@ -259,19 +283,6 @@ body {
 .integration-button:hover {
   background-color: #0056b3;
   transform: translateY(-3px);
-}
-
-.wave-spacing {
-  margin: 2rem 0;
-}
-
-.full-width-wave {
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
 }
 
 @media (max-width: 768px) {
