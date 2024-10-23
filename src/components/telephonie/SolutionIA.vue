@@ -1,5 +1,5 @@
 <template>
-  <section class="ia-wildix">
+  <section id="ia-wildix" class="ia-wildix">
     <h2>Intelligence Artificielle</h2>
     <p class="description">
       Alezia propose une gamme complète de matériel de téléphonie d'entreprise, permettant d'installer une téléphonie fixe sur IP (via Internet). Ce système, qui ne nécessite qu'une connexion Internet professionnelle, élimine le besoin de serveurs téléphoniques traditionnels (PBX). Alezia s'appuie sur des technologies fiables et performantes offertes par Wildix pour garantir une solution de qualité.

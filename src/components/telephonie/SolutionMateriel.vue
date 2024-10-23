@@ -1,5 +1,5 @@
 <template>
-  <section class="materiel-wildix">
+  <section id="materiel-wildix" class="materiel-wildix">
     <h2>Le matériel Wildix</h2>
     <p class="subtitle">A déployer en fonction de vos besoins :</p>
     <div class="carousel-container">

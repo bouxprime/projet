@@ -1,14 +1,32 @@
 <template>
   <div>
-    <section class="solution-voip full-height" ref="solutionVoip">
-      <h1>Solutions VoIP</h1>
-      <div class="description">
-        <p>Alezia propose une gamme complète de matériel de téléphonie d'entreprise, permettant d'installer une téléphonie fixe sur IP (via internet).</p>
-        <p>Ce système, qui ne nécessite qu'une connexion internet professionnelle, élimine le besoin de serveurs téléphoniques traditionnels (PABX). Alezia s'appuie sur des technologies fiables et performantes offertes par Wildix pour garantir une solution de qualité.</p>
+    <!-- Section principale contenant la description et la table des matières -->
+    <section class="main-section">
+      <!-- Partie de gauche avec le texte et l'image -->
+      <div class="left-content" ref="solutionVoip">
+        <section id="solution-voip" class="solution-voip">
+          <h1>Solutions VoIP</h1>
+          <div class="description">
+            <p>Alezia propose une gamme complète de matériel de téléphonie d'entreprise, permettant d'installer une téléphonie fixe sur IP (via internet).</p>
+            <p>Ce système, qui ne nécessite qu'une connexion internet professionnelle, élimine le besoin de serveurs téléphoniques traditionnels (PABX). Alezia s'appuie sur des technologies fiables et performantes offertes par Wildix pour garantir une solution de qualité.</p>
+          </div>
+        </section>
+      </div>
+      <!-- Partie de droite avec la table des matières -->
+      <div class="solution-voip-toc">
+        <h2>Table des matières</h2>
+        <ul>
+          <li><a href="#solution-voip" @click.prevent="smoothScroll('#solution-voip')">Solutions VoIP</a></li>
+          <li><a href="#voip-features" @click.prevent="smoothScroll('#voip-features')">Fonctionnalités de la VoIP</a></li>
+          <li><a href="#collaboration" @click.prevent="smoothScroll('#collaboration')">Collaboration multi-usage</a></li>
+          <li><a href="#materiel-wildix" @click.prevent="smoothScroll('#materiel-wildix')">Matériel Wildix</a></li>
+          <li><a href="#ia-wildix" @click.prevent="smoothScroll('#ia-wildix')">Intelligence Artificielle</a></li>
+        </ul>
       </div>
     </section>
+
     <!-- Section des cartes interactives avec texte associé -->
-    <section class="voip-features">
+    <section id="voip-features" class="voip-features">
       <h2 class="features-title">Découvrez nos fonctionnalités :</h2>
       <div class="content-wrapper">
         <div class="features-grid">
@@ -65,6 +83,16 @@ export default {
   methods: {
     selectFeature(index) {
       this.selectedFeatureIndex = index;
+    },
+    smoothScroll(target) {
+      const element = document.querySelector(target);
+      if (element) {
+        const navbarHeight = document.querySelector('.navbar') ? document.querySelector('.navbar').offsetHeight : 0;
+        window.scrollTo({
+          top: element.offsetTop - navbarHeight - 20, // Ajuste la position pour éviter de passer sous la navbar
+          behavior: 'smooth'
+        });
+      }
     }
   },
   mounted() {
@@ -77,19 +105,86 @@ export default {
 </script>
 
 <style scoped>
-.solution-voip.full-height {
-  position: relative;
-  min-height: 100vh; /* Prend toute la hauteur de la fenêtre */
+.main-section {
   display: flex;
-  flex-direction: column;
-  justify-content: center; /* Centre verticalement */
-  align-items: center; /* Centre horizontalement */
-  text-align: center;
-  overflow: hidden; /* Pour cacher les débordements pendant l'animation */
-  background: linear-gradient(180deg, #cde8ff 0%, #a5d3ff 100%); /* Ajoute un gradient comme fond de la section */
+  flex-direction: row;
+  gap: 2rem;
+  align-items: flex-start;
+  background: linear-gradient(180deg, #cde8ff 0%, #a5d3ff 100%);
+  padding: 2rem 2rem 0;
 }
 
-.solution-voip.full-height::after {
+.left-content {
+  flex: 2;
+  position: relative;
+}
+
+.main-section .solution-voip-toc {
+  flex: 1;
+  background-color: #f0f0f0;
+  padding: 1.5rem;
+  border-radius: 8px;
+  position: sticky;
+  top: calc(var(--navbar-height, 80px) + 20px);
+  align-self: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: auto;
+  height: auto;
+}
+
+.main-section .solution-voip-toc h2 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: #1e90ff;
+}
+
+.main-section .solution-voip-toc ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.main-section .solution-voip-toc li {
+  margin: 0.5rem 0;
+}
+
+.main-section .solution-voip-toc a {
+  color: #1e90ff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border: 1px solid #1e90ff;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.main-section .solution-voip-toc a:hover {
+  text-decoration: none;
+  background-color: #1e90ff;
+  color: #ffffff;
+}
+
+.solution-voip {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  background: linear-gradient(180deg, #cde8ff 0%, #a5d3ff 100%);
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.solution-voip::after {
   content: '';
   position: absolute;
   top: 0;
@@ -105,7 +200,7 @@ export default {
   transition: opacity 1.5s ease, transform 1.5s ease;
 }
 
-.solution-voip.full-height.animate-bg::after {
+.solution-voip.animate-bg::after {
   opacity: 1;
   transform: scale(1);
 }
@@ -113,26 +208,24 @@ export default {
 .solution-voip h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  color: black; /* Texte en noir */
+  color: black;
 }
 
 .description {
   max-width: 800px;
   margin: 0 auto;
   line-height: 1.6;
-  color: black; /* Texte en noir */
+  color: black;
 }
 
-/* Section pour les cartes et leur description */
 .voip-features {
-  padding: 4rem 2rem; /* Augmente le padding pour un espacement plus aéré */
-  background-color: #f9fafc; /* Change la couleur de fond pour une meilleure distinction de section */
+  padding: 4rem 2rem;
+  background-color: #f9fafc;
 }
 
-/* Titre en noir */
 .features-title {
   font-size: 2rem;
-  color: black; /* Titre en noir */
+  color: black;
   margin-bottom: 3rem;
   text-align: center;
   position: relative;
@@ -149,7 +242,6 @@ export default {
   transform: translateX(-50%);
 }
 
-/* Wrapper pour organiser les cartes et la description */
 .content-wrapper {
   display: flex;
   flex-direction: column;
@@ -164,18 +256,17 @@ export default {
   }
 }
 
-/* Cartes disposées en deux colonnes */
 .features-grid {
   display: grid;
-  grid-template-columns: 1fr; /* Une colonne par défaut */
+  grid-template-columns: 1fr;
   gap: 1.5rem;
   width: 100%;
 }
 
 @media (min-width: 768px) {
   .features-grid {
-    grid-template-columns: repeat(2, 1fr); /* Deux colonnes à partir de la tablette */
-    width: 40%; /* Cartes à gauche occupant 40% de la largeur */
+    grid-template-columns: repeat(2, 1fr);
+    width: 40%;
   }
 }
 
@@ -206,10 +297,9 @@ export default {
 
 .feature-box:hover {
   background-color: #e0f7fa;
-  transform: scale(1.05); /* Agrandit légèrement la carte au survol */
+  transform: scale(1.05);
 }
 
-/* Description à droite */
 .feature-description {
   width: 100%;
   padding: 1rem;
@@ -220,7 +310,7 @@ export default {
 
 @media (min-width: 768px) {
   .feature-description {
-    width: 55%; /* Texte occupant 55% de la largeur à droite */
+    width: 55%;
     padding-left: 2rem;
   }
 }

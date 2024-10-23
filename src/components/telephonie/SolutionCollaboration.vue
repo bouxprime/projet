@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="collaboration">
+    <section id="collaboration" class="collaboration">
       <h2>Collaboration</h2>
       <p class="description">Une application multi-usages :</p>
 
