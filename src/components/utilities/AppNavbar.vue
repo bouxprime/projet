@@ -11,24 +11,25 @@
         <li class="dropdown">
           <a @click="toggleDropdown('telephonie')" @mouseover="showDropdown('telephonie')" :class="{'active-link': isActive('/solution') || isActive('/integration') || isActive('/x-bees') || isActive('/x-hopper') || isActive('/alezia-studio')}">Téléphonie</a>
           <ul v-if="dropdowns.telephonie" class="dropdown-menu">
-            <li><router-link to="/solution" @click="toggleMenu"><span class="dot"></span>Solutions</router-link></li>
-            <li><router-link to="/integration" @click="toggleMenu"><span class="dot"></span><span class="dot"></span>Intégrations</router-link></li>
-            <li><router-link to="/x-bees" @click="toggleMenu"><span class="dot"></span><span class="dot"></span>X-bees</router-link></li>
-            <li><router-link to="/x-hopper" @click="toggleMenu"><span class="dot"></span><span class="dot"></span>X-hoppers</router-link></li>
-            <li><router-link to="/alezia-studio" @click="toggleMenu"><span class="dot"></span><span class="dot"></span>Alezia Studio</router-link></li>
+            <li class="dropdown-item"><router-link to="/solution" @click="toggleMenu">Solutions</router-link></li>
+            <li class="dropdown-item"><router-link to="/integration" @click="toggleMenu">Intégrations</router-link></li>
+            <li class="dropdown-item"><router-link to="/x-bees" @click="toggleMenu">X-bees</router-link></li>
+            <li class="dropdown-item"><router-link to="/x-hopper" @click="toggleMenu">X-hoppers</router-link></li>
+            <li class="dropdown-item"><router-link to="/alezia-studio" @click="toggleMenu">Alezia Studio</router-link></li>
           </ul>
         </li>
         <li class="dropdown">
           <a @click="toggleDropdown('it')" @mouseover="showDropdown('it')" :class="{'active-link': isActive('/cloud') || isActive('/conseils') || isActive('/cybersecurite') || isActive('/services-manage') || isActive('/materiel')}">IT</a>
           <ul v-if="dropdowns.it" class="dropdown-menu">
-            <li><router-link to="/cloud" @click="toggleMenu"><span class="dot"></span>Cloud</router-link></li>
-            <li><router-link to="/conseils" @click="toggleMenu"><span class="dot"></span><span class="dot"></span>Conseils</router-link></li>
-            <li><router-link to="/cybersecurite" @click="toggleMenu"><span class="dot"></span><span class="dot"></span>Cybersécurité</router-link></li>
-            <li><router-link to="/services-manage" @click="toggleMenu"><span class="dot"></span><span class="dot"></span>Services Managés</router-link></li>
-            <li><router-link to="/materiel" @click="toggleMenu"><span class="dot"></span><span class="dot"></span>Matériel et solutions</router-link></li>
+            <li class="dropdown-item"><router-link to="/cloud" @click="toggleMenu">Cloud</router-link></li>
+            <li class="dropdown-item"><router-link to="/conseils" @click="toggleMenu">Conseils</router-link></li>
+            <li class="dropdown-item"><router-link to="/cybersecurite" @click="toggleMenu">Cybersécurité</router-link></li>
+            <li class="dropdown-item"><router-link to="/services-manage" @click="toggleMenu">Services Managés</router-link></li>
+            <li class="dropdown-item"><router-link to="/materiel" @click="toggleMenu">Matériel et solutions</router-link></li>
           </ul>
         </li>
         <li><router-link to="/apropos" @click="toggleMenu" :class="{'active-link': isActive('/apropos')}">À Propos</router-link></li>
+        <li><router-link to="/alezia-studio" class="contact-button" @click="toggleMenu" :class="{'active-link': isActive('/alezia-studio')}">Alezia Studio</router-link></li>
         <li><router-link to="/contact" class="contact-button" @click="toggleMenu" :class="{'active-link': isActive('/contact')}">Contact</router-link></li>
         <li>
           <button class="phone-button" @click="handlePhoneClick">
@@ -108,8 +109,6 @@ export default {
   }
 }
 </script>
-
-
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
@@ -196,8 +195,8 @@ nav.services-page .nav-links a {
 .dropdown-menu {
   position: absolute;
   top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  transform: translateX(0%);
   background-color: white;
   color: black;
   padding: 1em;
@@ -209,15 +208,17 @@ nav.services-page .nav-links a {
   border-radius: 10px;
 }
 
-.dropdown-menu li {
+.dropdown-item {
   margin: 0.5em 0;
-  display: flex;
-  align-items: center;
+  display: block;
+  text-align: left;
 }
 
 .dropdown-menu a {
   color: black;
   text-decoration: none;
+  display: block;
+  padding: 0.5em 0;
 }
 
 .dropdown-menu .dot {
@@ -344,7 +345,7 @@ nav.services-page .nav-links a {
     box-shadow: none;
     padding: 0;
   }
-  .dropdown-menu li {
+  .dropdown-item {
     margin: 0.5em 0;
   }
   .burger {

@@ -177,7 +177,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
+  text-align: left;
   overflow: hidden;
   background: linear-gradient(180deg, #cde8ff 0%, #a5d3ff 100%);
   padding: 2rem;

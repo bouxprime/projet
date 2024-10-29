@@ -1,17 +1,31 @@
 <template>
   <div class="x-hoppers-page">
-    <!-- Brève Explication -->
-    <section class="hero" :style="{ backgroundImage: `url(${randomImage})` }">
-      <h1>X-Hoppers</h1>
-      <div class="description">
-        <p>X-Hoppers est une solution de communication unifiée développée par Wildix spécifiquement pour le secteur du commerce de détail.</p>
-        <p>Elle combine des casques sans fil "push-to-talk" avec un système de communication basé sur le cloud, conçu pour améliorer l'expérience en magasin et accroître les ventes.</p>
-      </div>
-    </section>
+    <div class="content-wrapper">
+      <div class="main-section">
+        <!-- Brève Explication -->
+        <section id="hero" class="hero left-content">
+          <h1>X-Hoppers</h1>
+          <div class="description">
+            <p>X-Hoppers est une solution de communication unifiée développée par Wildix spécifiquement pour le secteur du commerce de détail.</p>
+            <p>Elle combine des casques sans fil "push-to-talk" avec un système de communication basé sur le cloud, conçu pour améliorer l'expérience en magasin et accroître les ventes.</p>
+          </div>
+        </section>
 
-    <Wave2Component/>
+        <!-- Table des Matières -->
+        <section class="table-of-contents">
+          <h2>Table des Matières</h2>
+          <ul>
+            <li><a href="#hero" @click.prevent="smoothScroll('#hero')">Introduction à X-Hoppers</a></li>
+            <li><a href="#cloud-features" @click.prevent="smoothScroll('#cloud-features')">Fonctionnalités de X-Hoppers</a></li>
+            <li><a href="#xhoppers-full" @click.prevent="smoothScroll('#xhoppers-full')">Détails Complémentaires</a></li>
+            <li><a href="#video-section" @click.prevent="smoothScroll('#video-section')">Vidéo Explicative</a></li>
+          </ul>
+        </section>
+      </div>
+    </div>
+
     <!-- Fonctionnalités en Cartes avec le même CSS que l'autre section -->
-    <section class="cloud-features">
+    <section id="cloud-features" class="cloud-features">
       <h2 class="features-title">X-Hoppers, c'est aussi :</h2>
       <div class="features-content">
         <div class="features-grid">
@@ -32,13 +46,14 @@
         </div>
       </div>
     </section>
-    <Wave3Component />
 
     <!-- Ajout du composant XHoppersFull -->
-    <XHoppersFull />
+    <section id="xhoppers-full">
+      <XHoppersFull />
+    </section>
 
     <!-- Vidéo Explicative -->
-    <section class="video-section">
+    <section id="video-section" class="video-section">
       <h2 class="titre-bleu">Découvrez X-Hoppers en vidéo</h2>
       <div class="video-container">
         <iframe src="https://www.youtube.com/embed/H6LNPkmXdow" frameborder="0" allowfullscreen></iframe>
@@ -49,15 +64,11 @@
 
 <script>
 import XHoppersFull from '@/components/x-hoppers/XHoppersFull.vue';
-import Wave3Component from '@/components/utilities/wave3.vue'; // Assurez-vous que le chemin est correct
-import Wave2Component from '@/components/utilities/wave2.vue'; // Assurez-vous que le chemin est correct
 
 export default {
   name: 'XHoppersPage',
   components: {
     XHoppersFull,
-    Wave3Component, // Enregistrement du composant
-    Wave2Component, // Ajoutez le composant ici
   },
   data() {
     return {
@@ -69,7 +80,7 @@ export default {
         },
         {
           title: 'QR Codes interactifs',
-          description: 'Les clients peuvent scanner des QR codes pour obtenir des informations sur les produits ou demander de l\'aide, ce qui améliore l\'expérience client.'
+          description: "Les clients peuvent scanner des QR codes pour obtenir des informations sur les produits ou demander de l'aide, ce qui améliore l'expérience client."
         },
         {
           title: 'Surveillance automatisée des vols',
@@ -77,10 +88,9 @@ export default {
         },
         {
           title: 'Intégration avec systèmes de caisse',
-          description: 'X-Hoppers s\'intègre parfaitement avec les systèmes de caisse pour faciliter la gestion des transactions et améliorer le service client.'
-        }
+          description: "X-Hoppers s'intègre parfaitement avec les systèmes de caisse pour faciliter la gestion des transactions et améliorer le service client."
+        },
       ],
-      randomImage: '', // Variable pour stocker l'image aléatoire
     };
   },
   computed: {
@@ -92,83 +102,162 @@ export default {
     selectFeature(index) {
       this.selectedFeatureIndex = index;
     },
-    selectRandomImage() {
-      const images = [
-        require('@/assets/bk/bk1.png'),
-        require('@/assets/bk/bk2.png'),
-        require('@/assets/bk/bk3.png'),
-        require('@/assets/bk/bk4.png'),
-        require('@/assets/bk/bk5.png'),
-      ];
-      const randomIndex = Math.floor(Math.random() * images.length);
-      this.randomImage = images[randomIndex];
+    smoothScroll(target) {
+      const element = document.querySelector(target);
+      if (element) {
+        const navbarHeight = document.querySelector('.navbar') ? document.querySelector('.navbar').offsetHeight : 0;
+        window.scrollTo({
+          top: element.offsetTop - navbarHeight - 20,
+          behavior: 'smooth'
+        });
+      }
     }
   },
-  mounted() {
-    this.selectRandomImage(); // Appel de la méthode pour sélectionner l'image aléatoire
-  }
 };
 </script>
 
 <style scoped>
-/* Styles pour la section Hero (Intro) */
+/**** Styles inspirés du deuxième code fourni ****/
+.main-section {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: stretch;
+  background: linear-gradient(180deg, #cde8ff 0%, #a5d3ff 100%);
+  padding: 2rem;
+}
+
+.left-content {
+  flex: 2;
+  position: relative;
+}
+
+.table-of-contents {
+  flex: 1;
+  background-color: #f0f0f0;
+  padding: 1.5rem;
+  border-radius: 8px;
+  position: relative;
+  align-self: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: auto;
+}
+
+.table-of-contents h2 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: #1e90ff;
+}
+
+.table-of-contents ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.table-of-contents li {
+  margin: 0.5rem 0;
+}
+
+.table-of-contents a {
+  color: #1e90ff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border: 1px solid #1e90ff;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.table-of-contents a:hover {
+  text-decoration: none;
+  background-color: #1e90ff;
+  color: #ffffff;
+}
+
 .hero {
+  position: relative;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Occupe toute la hauteur de la fenêtre */
-  text-align: center;
-  padding: 0 2rem;
-  background-size: 550px; /* Taille de l'image */
-  background-position: bottom right; /* Positionner l'image en bas à droite */
-  background-repeat: no-repeat; /* Empêcher la répétition de l'image */
-  position: relative;
+  text-align: left;
+  overflow: hidden;
+  background: linear-gradient(180deg, #cde8ff 0%, #a5d3ff 100%);
+  padding: 2rem;
+  border-radius: 10px;
 }
 
 .hero h1 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin-bottom: 1rem;
-  z-index: 2; /* Assure que le texte est au-dessus de l'image */
-  color: #000; /* Couleur noire pour le titre */
+  color: black;
 }
 
 .description {
   max-width: 800px;
-  text-align: center;
-  font-size: 1.2rem;
+  margin: 0 auto;
   line-height: 1.6;
-  margin-bottom: 2rem;
-  z-index: 2; /* Assure que le texte est visible au-dessus de l'image */
-  color: #000; /* Texte en noir */
-}
-
-/* Nouveau style pour le titre des fonctionnalités */
-.features-title {
-  text-align: center;
-  font-weight: bold;
-  font-size: 2rem;
   color: black;
-  margin-bottom: 2rem;
 }
 
-/* Styles de la section cloud-features */
 .cloud-features {
   padding: 4rem 2rem;
-  background-color: white;
+  background-color: #f9fafc;
+}
+
+.features-title {
+  font-size: 2rem;
+  color: black;
+  margin-bottom: 3rem;
+  text-align: center;
+  position: relative;
+}
+
+.features-title::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  width: 50px;
+  height: 4px;
+  background-color: #1e90ff;
+  transform: translateX(-50%);
 }
 
 .features-content {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+@media (min-width: 768px) {
+  .features-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
 }
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Deux colonnes pour mettre les cartes deux par deux */
-  gap: 1rem;
-  width: 40%; /* Ajuste cette valeur pour contrôler la largeur des cartes */
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    width: 40%;
+  }
 }
 
 .feature-box {
@@ -176,43 +265,61 @@ export default {
   justify-content: center;
   align-items: center;
   height: 150px;
-  background-color: #f7f7f7;
+  padding: 1rem;
+  background-color: #ffffff;
   border-radius: 10px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .feature-box h3 {
   color: #1e90ff;
+  font-size: 1.3rem;
+  margin: 0;
 }
 
 .feature-box.active {
   background-color: #e0f7fa;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .feature-box:hover {
   background-color: #e0f7fa;
+  transform: scale(1.05);
 }
 
 .feature-description {
-  width: 55%; /* Ajuste cette valeur pour la largeur de la description à droite */
-  padding-left: 2rem;
+  width: 100%;
+  padding: 1rem;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 768px) {
+  .feature-description {
+    width: 55%;
+    padding-left: 2rem;
+  }
 }
 
 .feature-description h3 {
   color: #1e90ff;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 .feature-description p {
   line-height: 1.6;
   font-size: 1rem;
+  text-align: left;
 }
 
-/* Section vidéo explicative */
 .video-section {
-  padding: 2rem;
+  padding: 4rem;
   background-color: #f7f7f7;
   text-align: center;
   display: flex;
@@ -221,24 +328,29 @@ export default {
 }
 
 .video-section h2 {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  color: #333;
 }
 
 .video-container {
-  width: 678px;
-  height: 380px;
+  width: 768px;
+  height: 432px;
   background-color: #ccc;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .video-container iframe {
   width: 100%;
   height: 100%;
+  border-radius: 10px;
 }
 
 .titre-bleu {
-  color: #007BFF;
+  color: #1e90ff;
 }
 </style>
