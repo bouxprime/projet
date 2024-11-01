@@ -1,134 +1,115 @@
 <template>
-  <Wave2Component class="full-width-wave" />
   <section class="audit-features">
     <h2>Audit & Accompagnement</h2> <!-- Titre de la section -->
 
     <div class="features-container">
       <div class="features-grid">
-        <div
-          class="feature-box"
-          v-for="(advantage, index) in advantages"
-          :key="index"
-          @click="selectAdvantage(index)"
-          :class="{ active: selectedAdvantageIndex === index }"
-        >
+        <div class="feature-box" v-for="(advantage, index) in advantages" :key="index">
+          <img :src="advantage.icon" :alt="advantage.title" class="feature-icon" />
           <h3>{{ advantage.title }}</h3>
+          <p>{{ advantage.description }}</p>
         </div>
-      </div>
-
-      <div class="feature-description" v-if="selectedAdvantage">
-        <h3>{{ selectedAdvantage.title }}</h3>
-        <p>{{ selectedAdvantage.description }}</p>
       </div>
     </div>
   </section>
 </template>
 
 <script>
-import Wave2Component from '@/components/utilities/wave2.vue';
-
 export default {
   name: 'AuditFeaturesComponent',
-  components: {
-    Wave2Component,
-  },
   data() {
     return {
-      selectedAdvantageIndex: 0,
       advantages: [
-        { title: 'Performance', description: 'Optimisez vos workflows en automatisant les processus.' },
-        { title: 'Optimisation des coûts', description: 'Profitez de solutions numériques ajustées pour réduire vos coûts.' },
-        { title: 'Évolution des perspectives', description: 'Découvrez le potentiel de vos données grâce à des solutions évolutives.' },
-        { title: 'Conseils et assistance', description: 'ALEZIA vous accompagne avec une approche de proximité.' },
+        { title: 'Performance', description: 'Optimisez vos workflows en automatisant les processus.', icon: 'https://cdn-icons-png.flaticon.com/512/1828/1828640.png' },
+        { title: 'Optimisation des coûts', description: 'Profitez de solutions numériques ajustées pour réduire vos coûts.', icon: 'https://cdn-icons-png.flaticon.com/512/2331/2331966.png' },
+        { title: 'Évolution des perspectives', description: 'Découvrez le potentiel de vos données grâce à des solutions évolutives.', icon: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png' },
+        { title: 'Conseils et assistance', description: 'ALEZIA vous accompagne avec une approche de proximité.', icon: 'https://cdn-icons-png.flaticon.com/512/1946/1946406.png' },
       ],
     };
   },
-  computed: {
-    selectedAdvantage() {
-      return this.advantages[this.selectedAdvantageIndex];
-    }
-  },
-  methods: {
-    selectAdvantage(index) {
-      this.selectedAdvantageIndex = index;
-    }
-  }
 };
 </script>
 
 <style scoped>
-.audit-features {
-  padding: 2rem;
-  background-color: #f9f9f9;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
   font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.audit-features {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #cce7ff, #e0f8ff);
+  text-align: center;
 }
 
 .audit-features h2 {
   font-size: 2rem;
-  margin-bottom: 1.5rem;
-  text-align: center;
+  margin-bottom: 3rem;
+  color: #0056b3;
+  font-weight: 600;
 }
 
 .features-container {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  justify-content: center;
 }
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Les cartes sont maintenant sur deux colonnes */
-  gap: 1rem;
-  width: 40%; /* Les cartes prennent 40% de l'espace */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  justify-items: center;
+  width: 100%;
 }
 
 .feature-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 150px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 15px;
   text-align: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.feature-box h3 {
-  color: #007BFF;
-  text-align: center;
-}
-
-.feature-box.active {
-  background-color: #e0f7fa;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  max-width: 300px;
 }
 
 .feature-box:hover {
-  background-color: #e0f7fa;
+  transform: translateY(-10px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
-.feature-description {
-  width: 55%; /* Le texte prend 55% de l'espace */
-  padding-left: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: left; /* Aligner le texte à gauche */
-}
-
-.feature-description h3 {
-  color: #007BFF;
-  font-size: 1.5rem;
+.feature-icon {
+  width: 80px;
+  height: 80px;
   margin-bottom: 1rem;
 }
 
-.feature-description p {
-  line-height: 1.6;
-  font-size: 1rem;
+.feature-box h3 {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: #007BFF;
+  font-weight: 600;
 }
 
-.full-width-wave.no-bottom-margin {
-  margin-bottom: 0;
+.feature-box p {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Ajustement pour les petits écrans */
+@media (max-width: 768px) {
+  .audit-features {
+    padding: 3rem 1rem;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
 }
 </style>

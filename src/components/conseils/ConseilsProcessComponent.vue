@@ -71,7 +71,8 @@ export default {
 .process-carousel {
   padding: 2rem;
   text-align: center;
-  padding-bottom: 3rem; /* Ajout de padding en bas */
+  padding-top: 8rem;
+  padding-bottom: 5rem; /* Ajout de padding en bas */
   font-family: 'Poppins', sans-serif; /* Appliquer la police Poppins */
 }
 

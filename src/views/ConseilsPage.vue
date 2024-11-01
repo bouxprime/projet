@@ -29,7 +29,7 @@ export default {
 
 <style scoped>
 .conseils-page {
-  padding-top: 120px;
+  padding-top: 80px;
   font-family: 'Roboto', sans-serif;
   color: #333;
   line-height: 1.6;

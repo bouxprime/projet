@@ -1,11 +1,11 @@
 <template>
   <section class="connectivite-gestion-parc">
-    <h2 class="section-title">Profitez d’une connectivité d’entreprise stable</h2>
+    <h2 class="section-title" style="font-size: 2.75rem; margin-bottom: 2rem; color: #333; text-align: center;">Profitez d’une connectivité d’entreprise stable</h2>
 
     <!-- Section de connectivité -->
-    <section class="additional-content">
+    <section class="additional-content" style="background: linear-gradient(180deg, #cde8ff 0%, #a5d3ff 100%);">
       <div class="content-wrapper">
-        <div class="image-container reverse-animation">
+        <div class="image-container animate-from-top rotate-left">
           <img src="@/assets/services/manage1.png" alt="Connectivité d'entreprise stable et sécurisée" class="overflow-image reduced-size" />
         </div>
         <div class="text-content">
@@ -21,11 +21,10 @@
           </p>
         </div>
       </div>
-      
     </section>
 
     <!-- Nouvelle section 1 : Services managés -->
-    <section class="additional-content reverse">
+    <section class="additional-content reverse" style="background: linear-gradient(180deg, #cde8ff 0%, #a5d3ff 100%);">
       <div class="content-wrapper">
         <div class="text-content">
           <h2 class="sub-section-title">Services managés : une solution proactive</h2>
@@ -36,17 +35,16 @@
             Contrairement à l'infogérance, les services managés adoptent une approche basée sur la location : le client paie une redevance mensuelle tout inclus pour bénéficier de ces services.
           </p>
         </div>
-        <div class="image-container animated-image">
+        <div class="image-container animate-scale-up">
           <img src="@/assets/services/infogerence/manage2.png" alt="Services managés proactifs" class="overflow-image" />
         </div>
       </div>
-      
     </section>
 
     <!-- Nouvelle section 2 : Infogérance -->
-    <section class="additional-content reverse">
+    <section class="additional-content" style="background: linear-gradient(180deg, #cde8ff 0%, #a5d3ff 100%);">
       <div class="content-wrapper">
-        <div class="image-container reverse-animation">
+        <div class="image-container animate-from-top rotate-left">
           <img src="@/assets/services/infogerence/manage3.png" alt="Infogérance réactive pour entreprises" class="overflow-image" />
         </div>
         <div class="text-content">
@@ -59,15 +57,25 @@
           </p>
         </div>
       </div>
-      
     </section>
-
   </section>
 </template>
 
 <script>
 export default {
-  name: 'CombinedSection'
+  name: 'CombinedSection',
+  mounted() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        }
+      });
+    }, { threshold: 0.8 });
+
+    const animatedElements = document.querySelectorAll('.image-container');
+    animatedElements.forEach((el) => observer.observe(el));
+  }
 };
 </script>
 
@@ -80,25 +88,30 @@ export default {
 }
 
 .section-title {
-  font-size: 2.5rem;
-  color: #1e90ff;
-  margin-bottom: 1.5rem;
+  font-size: 2.75rem;
+  margin-bottom: 2rem;
+  color: #333;
   text-align: center;
 }
 
 .sub-section-title {
   font-size: 2rem;
   color: #007BFF;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   text-align: center;
 }
 
 .additional-content {
   padding: 4rem 2rem;
-  background: #ffffff;
-  margin-bottom: 4rem;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
   border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 4rem;
+  transition: transform 0.3s ease;
+}
+
+.additional-content:hover {
+  transform: translateY(-10px);
 }
 
 .content-wrapper {
@@ -115,6 +128,12 @@ export default {
   flex: 1;
 }
 
+.text-content p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: #555;
+}
+
 .image-container {
   width: 45%;
   display: flex;
@@ -123,55 +142,58 @@ export default {
   flex: 1;
 }
 
+.image-container.animate-from-top {
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.image-container.animate-scale-up {
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.image-container.animate-from-top.in-view,
+.image-container.animate-scale-up.in-view {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
 .image-container img {
   max-width: 100%;
   max-height: 400px;
   height: auto;
   border-radius: 15px;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease;
+  transform: perspective(1000px) rotateY(-10deg);
+  transition: transform 1s ease;
 }
 
-.image-container img:hover {
-  transform: scale(1.05);
+.image-container.rotate-left img {
+  transform: perspective(1000px) rotateY(10deg);
 }
 
-.reverse-animation {
-  transform: perspective(800px) rotateY(5deg);
+.image-container.in-view img {
+  transform: perspective(1000px) rotateY(-10deg);
 }
 
-.animated-image {
-  transform: perspective(800px) rotateY(-5deg);
+.image-container.rotate-left.in-view img {
+  transform: perspective(1000px) rotateY(10deg);
+}
+
+.image-container img.reduced-size {
+  max-width: 70%;
+}
+
+.overflow-image {
+  position: relative;
+  width: 100%;
+  left: 0;
 }
 
 .reverse {
   flex-direction: row-reverse;
-}
-
-.text-content p {
-  font-size: 1.125rem;
-  line-height: 1.8;
-  color: #555;
-}
-
-.cta-button {
-  text-align: center;
-  margin-top: 1.5rem;
-}
-
-.cta-button button {
-  background-color: #1e90ff;
-  color: #ffffff;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.cta-button button:hover {
-  background-color: #1c86ee;
 }
 
 @media (max-width: 768px) {

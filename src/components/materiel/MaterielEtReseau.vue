@@ -1,21 +1,30 @@
 <template>
   <div class="materiel-reseau-container">
     <!-- Partie Matériel Informatique -->
-    <section class="section-materiel">
-      <h1>Matériel Informatique</h1>
-      <p>
-        Nous offrons une gamme complète de PC, ordinateurs portables et tablettes, adaptés à tous les usages professionnels. Nos équipements sont conçus pour être performants et fiables, permettant à vos collaborateurs de travailler efficacement, où qu’ils se trouvent.
-      </p>
+    <section class="section-materiel main-section">
+      <div class="left-content">
+        <h1>Matériel Informatique</h1>
+        <p>
+          Nous offrons une gamme complète de PC, ordinateurs portables et tablettes, adaptés à tous les usages professionnels. Nos équipements sont conçus pour être performants et fiables, permettant à vos collaborateurs de travailler efficacement, où qu’ils se trouvent.
+        </p>
+      </div>
+      <div class="solution-voip-toc">
+        <h2>Table des matières</h2>
+        <ul>
+          <li><a href="#pc-portables" @click.prevent="smoothScroll('#pc-portables')">PC et Ordinateurs Portables</a></li>
+          <li><a href="#tablettes" @click.prevent="smoothScroll('#tablettes')">Tablettes</a></li>
+          <li><a href="#accessoires" @click.prevent="smoothScroll('#accessoires')">Accessoires et Périphériques</a></li>
+        </ul>
+      </div>
     </section>
 
-    <Wave2Component  />
     <SolutionsIT />
-    <Wave3Component  />
+    
     <!-- Partie Connexion Internet professionnelle -->
     <section class="connexion-internet-section with-padding">
       <div class="connexion-content-wrapper">
-        <div class="connexion-image-container tilted-image">
-          <img src="@/assets/materiel/connexion-internet.jpg" alt="Connexion Internet" class="animated-image" />
+        <div class="connexion-image-container animate-from-top rotate-left">
+          <img src="@/assets/materiel/connexion-internet.jpg" alt="Connexion Internet" class="overflow-image" />
         </div>
         <div class="connexion-text-content">
           <h2 class="connexion-title">Connexion Internet professionnelle</h2>
@@ -36,10 +45,10 @@
     </section>
 
     <!-- Partie Solutions IT -->
-    <section class="solutions-it-section reverse with-padding">
+    <section class="solutions-it-section reverse with-padding" style="background: linear-gradient(180deg, #cde8ff 0%, #a5d3ff 100%);">
       <div class="solutions-content-wrapper">
         <div class="solutions-text-content">
-          <h2 class="solutions-title">Solutions IT</h2>
+          <h2 class="solutions-title" style="color: #007BFF;">Solutions IT</h2>
           <p>
             Pour répondre précisément à vos besoins en matériel et solutions IT, nous avons choisi de nous spécialiser dans les standards les plus reconnus du marché. Toujours attentifs aux évolutions technologiques et aux nouveaux modèles, nous enrichissons notre gamme de produits en permanence.
           </p>
@@ -47,8 +56,8 @@
             Cette démarche nous permet de conserver une expertise solide et de vous offrir des solutions innovantes et parfaitement adaptées à vos exigences, grâce à notre connaissance approfondie des produits disponibles chez ALEZIA.
           </p>
         </div>
-        <div class="solutions-image-container tilted-image">
-          <img src="@/assets/materiel/solution-it.png" alt="Solutions IT" class="animated-image" />
+        <div class="solutions-image-container animate-scale-up">
+          <img src="@/assets/materiel/solution-it.png" alt="Solutions IT" class="overflow-image reduced-size" />
         </div>
       </div>
     </section>
@@ -56,17 +65,37 @@
 </template>
 
 <script>
-
 import SolutionsIT from './SolutionsIT.vue';
-import Wave3Component from '@/components/utilities/wave3.vue';
-import Wave2Component from '@/components/utilities/wave2.vue';
 export default {
   name: 'MaterielEtReseau',
   components: {
     SolutionsIT,
-    Wave3Component,
-    Wave2Component,
   },
+  methods: {
+    smoothScroll(target) {
+      const element = document.querySelector(target);
+      if (!element) {
+        console.warn('Element not found:', target);
+        return;
+      }
+      window.scrollTo({
+        top: element.offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  },
+  mounted() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        }
+      });
+    }, { threshold: 0.8 });
+
+    const animatedElements = document.querySelectorAll('.connexion-image-container, .solutions-image-container');
+    animatedElements.forEach((el) => observer.observe(el));
+  }
 };
 </script>
 
@@ -80,26 +109,67 @@ export default {
 }
 
 /* Partie Matériel Informatique */
-.section-materiel {
-  height: 100vh; /* Hauteur ajustée pour prendre toute la page */
+.main-section {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(180deg, #cde8ff 0%, #a5d3ff 100%);
+}
+
+.left-content {
+  flex: 2;
+  position: relative;
+  text-align: center;
+}
+
+.solution-voip-toc {
+  flex: 2;
+  background-color: #f0f0f0;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  gap: 2.5rem;
+  width: auto;
+  height: auto;
+  align-self: center;
+}
+
+.solution-voip-toc h2 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: #1e90ff;
+}
+
+.solution-voip-toc ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  text-align: center;
-  background-color: #ffffff; /* Fond blanc */
+  gap: 2.5rem;
 }
 
-.section-materiel h1 {
-  font-size: 2rem;
-  margin-bottom: 0.3rem;
+.solution-voip-toc a {
+  color: #1e90ff;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid #1e90ff;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.section-materiel p {
-  margin-bottom: 0;
+.solution-voip-toc a:hover {
+  background-color: #1e90ff;
+  color: #ffffff;
 }
 
-/* Section Connexion Internet */
 .connexion-internet-section {
   padding: 3rem 1rem;
   position: relative;
@@ -139,6 +209,14 @@ export default {
   display: flex;
   justify-content: center;
   overflow: visible;
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.connexion-image-container.in-view {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .connexion-image-container img {
@@ -155,14 +233,13 @@ export default {
   margin-bottom: 1.5rem;
 }
 
-/* Partie Solutions IT */
 .solutions-it-section {
-  padding: 3rem 1rem;
+  padding: 4rem 2rem;
   position: relative;
   background-color: #ffffff;
   border-radius: 15px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
   transition: transform 0.3s ease;
 }
 
@@ -195,10 +272,18 @@ export default {
   display: flex;
   justify-content: center;
   overflow: visible;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.solutions-image-container.in-view {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .solutions-image-container img {
-  max-width: 100%;
+  max-width: 70%;
   height: auto;
   border-radius: 15px;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
