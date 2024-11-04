@@ -1,5 +1,5 @@
 <template>
-  <section class="anticipez-menaces">
+  <section id="solutions" class="anticipez-menaces">
     <h2>Anticipez les Menaces Informatiques et Automatisez la Mise à Jour de Vos Systèmes</h2>
     
     <div class="menaces-container">

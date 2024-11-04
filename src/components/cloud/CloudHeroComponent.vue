@@ -11,12 +11,11 @@
         </section>
       </div>
       <!-- Partie de droite avec la table des matières -->
-      <div class="solution-voip-toc" style="align-self: center; margin-top: auto; margin-bottom: auto;">
+      <div class="solution-voip-toc">
         <h2>Table des matières</h2>
         <ul>
-          <li><a href="#introduction" @click.prevent="smoothScroll('#introduction')">Introduction au Cloud</a></li>
-          <li><a href="#opportunites" @click.prevent="smoothScroll('#opportunites')">Opportunités offertes par le Cloud</a></li>
-          <li><a href="#datacenter" @click.prevent="smoothScroll('#datacenter')">Hébergement en datacenter</a></li>
+          <li><a href="#cloud-recourse" @click.prevent="smoothScroll('#cloud-recourse')">Pourquoi avoir recours au Cloud ?</a></li>
+          <li><a href="#cloud-virtualization" @click.prevent="smoothScroll('#cloud-virtualization')">Découvrez les possibilités de la virtualisation</a></li>
         </ul>
       </div>
     </section>
@@ -153,5 +152,58 @@ export default {
   line-height: 1.8;
   z-index: 2;
   color: #000;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .main-section {
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+
+  .solution-voip-toc {
+    position: relative;
+    top: 0;
+    margin-top: 2rem;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .solution-voip-toc h2 {
+    font-size: 1.25rem;
+  }
+
+  .solution-voip-toc a {
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 1rem;
+  }
+
+  .hero h1 {
+    font-size: 1.75rem;
+  }
+
+  .ma-section p {
+    font-size: 0.875rem;
+  }
+
+  .solution-voip-toc {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .solution-voip-toc a {
+    padding: 0.5rem;
+  }
 }
 </style>

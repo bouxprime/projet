@@ -3,8 +3,8 @@
     <div class="blog-header">
       <h2 class="news-title">Les nouvelles de Alezia</h2>
       <div class="navigation-buttons">
-        <button @click="prevSlide" class="nav-button">&#8249;</button>
-        <button @click="nextSlide" class="nav-button">&#8250;</button>
+        <button @click="prevSlide" class="nav-button" aria-label="Previous Slide">&#8249;</button>
+        <button @click="nextSlide" class="nav-button" aria-label="Next Slide">&#8250;</button>
       </div>
     </div>
     <p class="subheader">Lisez nos derniers articles</p>
@@ -14,7 +14,7 @@
           <!-- Lien autour de la carte -->
           <a :href="card.link" target="_blank" rel="noopener noreferrer">
             <div class="card-image-wrapper">
-              <img :src="require(`@/assets/${card.image}`)" alt="Card image">
+              <img :src="require(`@/assets/${card.image}`)" alt="Card image" loading="lazy">
             </div>
             <div class="card-content">
               <h2>{{ card.title }}</h2>
@@ -70,7 +70,7 @@ export default {
 .blog-home {
   background-color: #192544;
   color: white;
-  padding: 40px 20px; /* Padding en haut et en bas */
+  padding: 40px 20px;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -78,22 +78,29 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px; /* Réduire la marge en bas */
-  padding-right: 20px; /* Ajouter un padding à droite pour aligner le titre */
+  margin-bottom: 10px;
+  padding-right: 20px;
   margin-top: 75px;
 }
 
 .news-title {
   margin: 0;
-  font-size: 24px;
-  padding-left: 20px; /* Ajouter un padding à gauche pour aligner le titre */
+  font-size: 32px;
+  font-weight: 600;
+  color: #1E90FF;
+  padding-left: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
 }
 
 .subheader {
   margin: 0 0 20px 0;
   color: #ccc;
   text-align: left;
-  padding-left: 20px; /* Ajouter un padding à gauche pour aligner le sous-titre */
+  padding-left: 20px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.4;
 }
 
 .navigation-buttons {
@@ -113,6 +120,12 @@ export default {
   justify-content: center;
   align-items: center;
   margin-left: 10px;
+  transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .blog-cards-wrapper {
@@ -132,41 +145,40 @@ export default {
   border-radius: 10px;
   padding: 20px;
   margin-right: 20px;
-  flex: 0 0 366px; /* Largeur fixe pour les cartes */
-  height: 480px; /* Hauteur fixe pour les cartes */
+  flex: 0 0 366px;
+  height: 480px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Aligner le contenu à gauche */
+  align-items: flex-start;
   box-sizing: border-box;
 }
 
-/* Enlève le surlignage du texte dans les liens */
 .blog-card a {
   text-decoration: none;
-  color: inherit; /* Hérite de la couleur du texte */
+  color: inherit;
 }
 
 .blog-card a:hover {
-  color: #1E90FF; /* Change la couleur lors du survol */
+  color: #1E90FF;
 }
 
 .card-image-wrapper {
   width: 100%;
   display: flex;
-  justify-content: center; /* Centrer l'image horizontalement */
+  justify-content: center;
+  margin-bottom: 15px;
 }
 
 .blog-card img {
-  width: 150px; /* Taille fixe pour les images */
-  height: 150px; /* Taille fixe pour les images */
+  width: 100%;
+  height: auto;
   object-fit: contain;
-  margin-bottom: 20px; /* Ajouter un espace en bas de l'image */
 }
 
 .card-content {
   display: flex;
   flex-direction: column;
-  width: 100%; /* Assurez-vous que le contenu prend toute la largeur disponible */
+  width: 100%;
 }
 
 .card-content h2 {
@@ -177,7 +189,8 @@ export default {
 
 .card-content p {
   font-size: 14px;
-  color: #666;
+  color: #444;
+  line-height: 1.6;
   margin: 0;
   text-align: left;
 }
@@ -193,11 +206,13 @@ export default {
   .news-title {
     padding-left: 0;
     margin-bottom: 10px;
+    font-size: 24px;
   }
 
   .subheader {
     padding-left: 0;
     text-align: left;
+    font-size: 16px;
   }
 
   .navigation-buttons {
@@ -205,23 +220,23 @@ export default {
   }
 
   .blog-cards-wrapper {
-    overflow-x: visible; /* Permet le défilement horizontal pour les petits écrans */
+    overflow-x: visible;
   }
 
   .blog-cards {
     flex-direction: column;
-    width: 100%; /* Largeur adaptée au contenu */
+    width: 100%;
   }
 
   .blog-card {
-    flex: 0 0 auto; /* Largeur réduite pour les petites écrans */
-    height: auto; /* Hauteur auto pour les petites écrans */
-    width: 100%; /* Prendre toute la largeur de l'écran */
+    flex: 0 0 auto;
+    height: auto;
+    width: 100%;
     margin-bottom: 20px;
   }
 
   .card-image-wrapper {
-    display: none; /* Cacher les images pour les petits écrans */
+    display: none;
   }
 
   .card-content h2 {
@@ -233,7 +248,7 @@ export default {
   }
 
   .nav-button {
-    display: none; /* Cacher les boutons de navigation sur les petits écrans */
+    display: none;
   }
 }
 </style>

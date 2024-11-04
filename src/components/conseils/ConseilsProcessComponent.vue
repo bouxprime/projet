@@ -1,5 +1,5 @@
 <template>
-  <section class="process-carousel">
+  <section id="processus-alezia" class="process-carousel">
     <h2>Le processus ALEZIA</h2>
     <p class="subtitle highlight">Dans tout projet, c'est avant tout la nature du problème qui détermine la solution.</p>
     <div class="carousel-container">
@@ -72,8 +72,8 @@ export default {
   padding: 2rem;
   text-align: center;
   padding-top: 8rem;
-  padding-bottom: 5rem; /* Ajout de padding en bas */
-  font-family: 'Poppins', sans-serif; /* Appliquer la police Poppins */
+  padding-bottom: 5rem;
+  font-family: 'Poppins', sans-serif;
 }
 
 .process-carousel h2 {
@@ -82,10 +82,10 @@ export default {
 }
 
 .process-carousel .subtitle {
-  font-size: 1.5rem; /* Augmentation de la taille */
+  font-size: 1.5rem;
   margin-bottom: 2rem;
-  color: #007BFF; /* Mettre la couleur en bleu */
-  font-weight: bold; /* Optionnel pour accentuer */
+  color: #007BFF;
+  font-weight: bold;
 }
 
 .carousel-container {
@@ -106,7 +106,7 @@ export default {
 }
 
 .carousel-slide {
-  min-width: calc(100% / 3); /* 3 cards visibles en même temps */
+  min-width: calc(100% / 3);
   box-sizing: border-box;
   padding: 0 15px;
   display: flex;
@@ -117,15 +117,15 @@ export default {
   background-color: #fff;
   padding: 1.5rem;
   border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
-  text-align: center; /* Centrer le texte dans les cartes */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
   width: 100%;
 }
 
 .card h3 {
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
-  text-align: center; /* Centrer le titre des cartes */
+  text-align: center;
 }
 
 .card p {
@@ -137,7 +137,7 @@ export default {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: #007bff; /* Mettre la couleur en #007BFF */
+  background-color: #007bff;
   border: none;
   color: white;
   width: 40px;
@@ -158,5 +158,23 @@ export default {
 
 .carousel-button.next {
   right: 0;
+}
+
+/* Responsivité */
+@media (max-width: 1024px) {
+  .carousel-slide {
+    min-width: calc(100% / 2); /* 2 cards visibles en même temps sur tablettes */
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-slide {
+    min-width: 100%; /* 1 card visible à la fois sur petits écrans */
+  }
+
+  .carousel-button {
+    width: 35px;
+    height: 35px;
+  }
 }
 </style>

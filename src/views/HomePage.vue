@@ -5,8 +5,8 @@
     </BackgroundVideo>
     <WhatWeDo />
     <CompanyPresentation />
-    <BlogHome /> <!-- Ajout du composant BlogHome -->
-    <SpacingSection height="100vh" /> <!-- Ajout du composant d'espacement avec une hauteur de 100vh -->
+    <BlogHome /> 
+    <SpacingSection height="100vh" /> 
   </div>
 </template>
 
@@ -15,8 +15,8 @@ import BackgroundVideo from '@/components/home/BackgroundVideo.vue'
 import HeroContent from '@/components/home/HeroContent.vue'
 import WhatWeDo from '@/components/home/WhatWeDo.vue'
 import CompanyPresentation from '@/components/home/CompanyPresentation.vue'
-import BlogHome from '@/components/home/BlogHome.vue' // Importation du nouveau composant
-import SpacingSection from '@/components/utilities/SpacingSection.vue' // Importation du composant SpacingSection
+import BlogHome from '@/components/home/BlogHome.vue' 
+import SpacingSection from '@/components/utilities/SpacingSection.vue' 
 
 export default {
   name: 'HomePage',
@@ -25,8 +25,8 @@ export default {
     HeroContent,
     WhatWeDo,
     CompanyPresentation,
-    BlogHome, // Enregistrement du nouveau composant
-    SpacingSection // Enregistrement du composant SpacingSection
+    BlogHome, 
+    SpacingSection 
   }
 }
 </script>
@@ -35,13 +35,14 @@ export default {
 .home-page {
   position: relative;
   overflow: hidden;
-  margin: 0; /* Ensure no margin */
-  padding: 0; /* Ensure no padding */
+  margin: 0;
+  padding: 0; 
+  background-color: #efeded;
 }
 
 .main-content {
-  background: white; /* Ensure background is white */
+  background: white; 
   padding: 2em 0;
-  margin: 0; /* Ensure no margin */
+  margin: 0; 
 }
 </style>

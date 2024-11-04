@@ -120,11 +120,17 @@ export default {
 /**** Styles inspirés du deuxième code fourni ****/
 .main-section {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 2rem;
   align-items: stretch;
   background: linear-gradient(180deg, #cde8ff 0%, #a5d3ff 100%);
   padding: 2rem;
+}
+
+@media (min-width: 768px) {
+  .main-section {
+    flex-direction: row;
+  }
 }
 
 .left-content {
@@ -188,7 +194,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: left;
+  text-align: center;
   overflow: hidden;
   background: linear-gradient(180deg, #cde8ff 0%, #a5d3ff 100%);
   padding: 2rem;
@@ -196,9 +202,15 @@ export default {
 }
 
 .hero h1 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin-bottom: 1rem;
   color: black;
+}
+
+@media (min-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
 }
 
 .description {
@@ -214,11 +226,17 @@ export default {
 }
 
 .features-title {
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: black;
   margin-bottom: 3rem;
   text-align: center;
   position: relative;
+}
+
+@media (min-width: 768px) {
+  .features-title {
+    font-size: 2rem;
+  }
 }
 
 .features-title::after {
@@ -276,8 +294,14 @@ export default {
 
 .feature-box h3 {
   color: #1e90ff;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   margin: 0;
+}
+
+@media (min-width: 768px) {
+  .feature-box h3 {
+    font-size: 1.3rem;
+  }
 }
 
 .feature-box.active {
@@ -307,19 +331,31 @@ export default {
 
 .feature-description h3 {
   color: #1e90ff;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   margin-bottom: 1rem;
   text-align: center;
 }
 
+@media (min-width: 768px) {
+  .feature-description h3 {
+    font-size: 1.8rem;
+  }
+}
+
 .feature-description p {
   line-height: 1.6;
-  font-size: 1rem;
+  font-size: 0.9rem;
   text-align: left;
 }
 
+@media (min-width: 768px) {
+  .feature-description p {
+    font-size: 1rem;
+  }
+}
+
 .video-section {
-  padding: 4rem;
+  padding: 2rem;
   background-color: #f7f7f7;
   text-align: center;
   display: flex;
@@ -327,15 +363,29 @@ export default {
   align-items: center;
 }
 
+@media (min-width: 768px) {
+  .video-section {
+    padding: 4rem;
+  }
+}
+
 .video-section h2 {
   margin-bottom: 2rem;
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: #333;
 }
 
+@media (min-width: 768px) {
+  .video-section h2 {
+    font-size: 2.5rem;
+  }
+}
+
 .video-container {
-  width: 768px;
-  height: 432px;
+  width: 100%;
+  max-width: 768px;
+  height: auto;
+  aspect-ratio: 16 / 9;
   background-color: #ccc;
   display: flex;
   justify-content: center;

@@ -168,6 +168,7 @@ export default {
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
   transform: perspective(1000px) rotateY(-10deg);
   transition: transform 1s ease;
+  background-color: white;
 }
 
 .image-container.rotate-left img {

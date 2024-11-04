@@ -8,7 +8,7 @@
         <section class="xhoppers-content" style="background: linear-gradient(180deg, #cde8ff 0%, #a5d3ff 100%);">
           <div class="content-wrapper">
             <div class="image-container animate-from-top rotate-left">
-              <img src="@/assets/x-hoppers/x-hoppers-casques-connectes.png" alt="Casques connectés" class="overflow-image reduced-size" />
+              <img src="@/assets/x-hoppers/x-hoppers-casques-connectes.png" alt="Casques connectés" class="overflow-image reduced-size-1" />
             </div>
             <div class="text-content">
               <h2>Casques connectés</h2>
@@ -24,7 +24,7 @@
               <p>X-hoppers s’intègre avec les systèmes de caisse enregistreuse (POS), permettant aux employés d’accéder rapidement à des informations sur les produits, de vérifier la disponibilité en stock, et de répondre efficacement aux demandes des clients sans quitter leur poste.</p>
             </div>
             <div class="image-container animate-scale-up">
-              <img src="@/assets/x-hoppers/x-hoppers-integration-caisse.png" alt="Intégration avec les systèmes de caisse" class="overflow-image reduced-size" />
+              <img src="@/assets/x-hoppers/x-hoppers-integration-caisse.png" alt="Intégration avec les systèmes de caisse" class="overflow-image reduced-size-2" />
             </div>
           </div>
         </section>
@@ -32,7 +32,7 @@
         <section class="xhoppers-content" style="background: linear-gradient(180deg, #cde8ff 0%, #a5d3ff 100%);">
           <div class="content-wrapper">
             <div class="image-container animate-from-top rotate-left">
-              <img src="@/assets/x-hoppers/x-hoppers-annonce-automatique-des-promotions.webp" alt="Annonce automatique des promotions" class="overflow-image" />
+              <img src="@/assets/x-hoppers/x-hoppers-annonce-automatique-des-promotions.webp" alt="Annonce automatique des promotions" class="overflow-image reduced-size-3" />
             </div>
             <div class="text-content">
               <h2>Annonce automatique des promotions</h2>
@@ -48,7 +48,7 @@
               <p>X-hoppers fournit des rapports sur la performance des employés et les interactions avec les clients. Cela permet aux managers d’analyser la productivité des équipes et d’identifier les points d’amélioration pour une meilleure gestion du personnel.</p>
             </div>
             <div class="image-container animate-scale-up">
-              <img src="@/assets/x-hoppers/x-hoppers-analyse-des-performances.webp" alt="Analyse des performances" class="overflow-image reduced-size" />
+              <img src="@/assets/x-hoppers/x-hoppers-analyse-des-performances.webp" alt="Analyse des performances" class="overflow-image reduced-size-5" />
             </div>
           </div>
         </section>
@@ -56,7 +56,7 @@
         <section class="xhoppers-content" style="background: linear-gradient(180deg, #cde8ff 0%, #a5d3ff 100%);">
           <div class="content-wrapper">
             <div class="image-container animate-from-top rotate-left">
-              <img src="@/assets/x-hoppers/x-hoppers-reduction-des-files-d-attente.png" alt="Réduction des files d’attente" class="overflow-image reduced-size" />
+              <img src="@/assets/x-hoppers/x-hoppers-reduction-des-files-d-attente.png" alt="Réduction des files d’attente" class="overflow-image reduced-size-6" />
             </div>
             <div class="text-content">
               <h2>Réduction des files d’attente</h2>
@@ -72,7 +72,7 @@
               <p>En plus de la communication interne, X-hoppers permet d’intégrer la communication avec les clients via des canaux comme les appels et les messages, facilitant une approche omnicanal pour répondre aux demandes en magasin.</p>
             </div>
             <div class="image-container animate-scale-up">
-              <img src="@/assets/x-hoppers/x-hoppers-communication-multi-canaux.webp" alt="Communication multi-canaux" class="overflow-image reduced-size" />
+              <img src="@/assets/x-hoppers/x-hoppers-communication-multi-canaux.webp" alt="Communication multi-canaux" class="overflow-image reduced-size-7" />
             </div>
           </div>
         </section>
@@ -80,7 +80,7 @@
         <section class="xhoppers-content" style="background: linear-gradient(180deg, #cde8ff 0%, #a5d3ff 100%);">
           <div class="content-wrapper">
             <div class="image-container animate-from-top rotate-left">
-              <img src="@/assets/x-hoppers/x-hoppers-integration-caisse.png" alt="Gestion des tâches en temps réel" class="overflow-image reduced-size" />
+              <img src="@/assets/x-hoppers/x-hoppers-gestion-taches.jpg" alt="Gestion des tâches en temps réel" class="overflow-image reduced-size-8" />
             </div>
             <div class="text-content">
               <h2>Gestion des tâches en temps réel</h2>
@@ -96,7 +96,7 @@
               <p>Grâce à l’intégration des caméras intelligentes dans X-hoppers, vous pouvez suivre en temps réel les activités en magasin, analyser les comportements des clients et assurer une meilleure sécurité. Les équipes peuvent être alertées instantanément en cas d’anomalies, permettant une réaction rapide et efficace.</p>
             </div>
             <div class="image-container animate-scale-up">
-              <img src="@/assets/x-hoppers/x-hoppers-camera-intelligente.png" alt="Caméra intelligente" class="overflow-image reduced-size" />
+              <img src="@/assets/x-hoppers/x-hoppers-camera-intelligente.png" alt="Caméra intelligente" class="overflow-image reduced-size-9" />
             </div>
           </div>
         </section>
@@ -218,6 +218,7 @@ body {
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
   transform: perspective(1000px) rotateY(-10deg);
   transition: transform 1s ease;
+  background-color: white;
 }
 
 .image-container.rotate-left img {
@@ -232,8 +233,37 @@ body {
   transform: perspective(1000px) rotateY(10deg);
 }
 
-.image-container img.reduced-size {
+/* CSS for unique reductions per section */
+.image-container img.reduced-size-1 {
+  max-width: 60%;
+}
+
+.image-container img.reduced-size-2 {
+  max-width: 65%;
+}
+
+.image-container img.reduced-size-3 {
   max-width: 70%;
+}
+
+.image-container img.reduced-size-5 {
+  max-width: 50%;
+}
+
+.image-container img.reduced-size-6 {
+  max-width: 45%;
+}
+
+.image-container img.reduced-size-7 {
+  max-width: 50%;
+}
+
+.image-container img.reduced-size-8 {
+  max-width: 55%;
+}
+
+.image-container img.reduced-size-9 {
+  max-width: 45%;
 }
 
 .overflow-image {

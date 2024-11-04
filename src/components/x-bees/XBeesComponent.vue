@@ -5,7 +5,7 @@
       <p class="description">Découvrez les fonctionnalités de X-bees propulsées par l'IA :</p>
 
       <!-- Section 1: Analyse des conversations avec l'IA -->
-      <section class="additional-content" style="background: linear-gradient(180deg, #cde8ff 0%, #a5d3ff 100%);">
+      <section id="section-analyse" class="additional-content" style="background: linear-gradient(180deg, #cde8ff 0%, #a5d3ff 100%);">
         <div class="content-wrapper">
           <div class="image-container animate-from-top rotate-left">
             <img src="@/assets/xbees/x-bees-analyse-des-conversations-avec-IA.webp" alt="Analyse des conversations avec l'IA" class="overflow-image reduced-size" />
@@ -18,7 +18,7 @@
       </section>
 
       <!-- Section 2: Automatisation des tâches -->
-      <section class="additional-content reverse" style="background: linear-gradient(180deg, #cde8ff 0%, #a5d3ff 100%);">
+      <section id="section-automatisation" class="additional-content reverse" style="background: linear-gradient(180deg, #cde8ff 0%, #a5d3ff 100%);">
         <div class="content-wrapper">
           <div class="text-content">
             <h2>Automatisation des tâches</h2>
@@ -173,6 +173,7 @@ body {
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
   transform: perspective(1000px) rotateY(-10deg);
   transition: transform 1s ease;
+  background-color: white;
 }
 
 .image-container.rotate-left img {
@@ -189,6 +190,16 @@ body {
 
 .image-container img.reduced-size {
   max-width: 70%;
+}
+
+/* Section 1: Réduire la taille de l'image */
+#section-analyse .image-container img.reduced-size {
+  max-width: 50%; /* Réduction de la taille de l'image */
+}
+
+/* Section 2: Agrandir légèrement la taille de l'image */
+#section-automatisation .image-container img.reduced-size {
+  max-width: 80%; /* Agrandir légèrement la taille de l'image */
 }
 
 .overflow-image {

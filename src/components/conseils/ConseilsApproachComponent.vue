@@ -1,5 +1,5 @@
 <template>
-  <section class="approach">
+  <section id="approach" class="approach">
     <h2>Une approche personnalisée</h2>
     <div class="content">
       <div class="text">
@@ -36,8 +36,8 @@ export default {
   justify-content: center;
   padding-top: 6rem;
   font-family: 'Poppins', sans-serif;
-  background: url('@/assets/alezia-background-3.png') no-repeat left center; /* Image déplacée à gauche */
-  background-size: 25%; /* Taille réduite à 25% pour s'ajuster à la mise en page */
+  background: url('@/assets/alezia-background-3.png') no-repeat left center;
+  background-size: 25%;
 }
 
 h2 {
@@ -57,7 +57,7 @@ h2 {
   margin: 0 auto;
   gap: 5rem;
   position: relative;
-  z-index: 1; /* Assure que le texte et l'image du contenu restent devant */
+  z-index: 1;
 }
 
 .text {
@@ -82,6 +82,17 @@ h2 {
 
   .text {
     margin-right: 2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .approach {
+    padding-top: 3rem;
+    background-size: 40%;
+  }
+
+  .image img {
+    max-width: 200px;
   }
 }
 </style>

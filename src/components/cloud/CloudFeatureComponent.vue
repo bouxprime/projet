@@ -1,5 +1,5 @@
 <template>
-  <section class="cloud-features-section">
+  <section id="cloud-recourse" class="cloud-features-section">
     <h2>Pourquoi avoir recours au Cloud ?</h2>
     <div class="features-container">
       <div
@@ -110,5 +110,52 @@ export default {
   font-size: 1rem;
   color: #333;
   line-height: 1.6;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .features-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .cloud-features-section {
+    padding: 3rem 1.5rem;
+  }
+
+  .features-container {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-item {
+    padding: 1.5rem;
+  }
+
+  .feature-item h3 {
+    font-size: 1.25rem;
+  }
+
+  .feature-item p {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cloud-features-section {
+    padding: 2rem 1rem;
+  }
+
+  .feature-item {
+    padding: 1rem;
+  }
+
+  .feature-item h3 {
+    font-size: 1.1rem;
+  }
+
+  .feature-item p {
+    font-size: 0.8rem;
+  }
 }
 </style>

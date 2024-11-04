@@ -23,7 +23,7 @@ export default {
     return {
       currentSlide: 0,
       totalSlides: 10, // Nombre total de slides
-      slidesToShow: 5, // Nombre de slides à afficher en même temps
+      slidesToShow: this.getSlidesToShow(), // Nombre de slides à afficher en fonction de l'écran
     };
   },
   computed: {
@@ -31,16 +31,30 @@ export default {
       return this.totalSlides - this.slidesToShow;
     },
   },
+  mounted() {
+    window.addEventListener('resize', this.updateSlidesToShow);
+  },
+  beforeUnmount() {
+    window.removeEventListener('resize', this.updateSlidesToShow);
+  },
   methods: {
     getImagePath(n) {
       return require(`@/assets/wildix${n}.png`);
     },
     nextSlide() {
-      this.currentSlide = (this.currentSlide + 1) % (this.totalSlides + 1 - this.slidesToShow);
+      this.currentSlide = Math.min(this.currentSlide + 1, this.maxSlideIndex);
     },
     prevSlide() {
-      this.currentSlide =
-        (this.currentSlide - 1 + (this.totalSlides + 1 - this.slidesToShow)) % (this.totalSlides + 1 - this.slidesToShow);
+      this.currentSlide = Math.max(this.currentSlide - 1, 0);
+    },
+    getSlidesToShow() {
+      const width = window.innerWidth;
+      if (width >= 1200) return 5; // Ordinateurs de bureau
+      if (width >= 768) return 3; // Tablettes
+      return 1; // Téléphones
+    },
+    updateSlidesToShow() {
+      this.slidesToShow = this.getSlidesToShow();
     },
   },
 };
@@ -65,15 +79,13 @@ body {
   font-size: 2rem;
   margin-bottom: 1rem;
   text-align: center;
-  font-family: 'Poppins', sans-serif; /* Utilisation de la police Poppins */
 }
 
 .materiel-wildix .subtitle {
   text-align: center;
-  margin-bottom: 6rem; /* Ajouter du padding en bas */
-  font-size: 2rem;
-  color: #007BFF; /* Couleur bleue spécifique */
-  font-family: 'Poppins', sans-serif; /* Utilisation de la police Poppins */
+  margin-bottom: 2rem; /* Ajusté pour plus de flexibilité */
+  font-size: 1.5rem;
+  color: #007BFF;
 }
 
 /* Style pour le carrousel */
@@ -95,7 +107,7 @@ body {
 }
 
 .carousel-slide {
-  min-width: calc(100% / 5); /* Ajustement pour afficher 5 slides */
+  min-width: calc(100% / 5); /* Ajustement pour afficher 5 slides par défaut */
   box-sizing: border-box;
   padding: 0 5px; /* Réduire l'espace entre les images */
   display: flex;
@@ -120,13 +132,12 @@ body {
   height: 40px;
   cursor: pointer;
   z-index: 10;
-  border-radius: 50%; /* Rond */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Ajout d'une ombre pour un effet plus esthétique */
-  font-family: 'Poppins', sans-serif; /* Utilisation de la police Poppins */
+  border-radius: 50%;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .carousel-button:hover {
-  background-color: #0056b3; /* Changer le fond au survol */
+  background-color: #0056b3;
 }
 
 .carousel-button.prev {
@@ -135,5 +146,26 @@ body {
 
 .carousel-button.next {
   right: 0;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+  .carousel-slide {
+    min-width: calc(100% / 3); /* Affiche 3 slides sur les écrans intermédiaires */
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-slide {
+    min-width: 100%; /* Affiche 1 slide sur les petits écrans */
+  }
+
+  .materiel-wildix h2 {
+    font-size: 1.5rem;
+  }
+
+  .materiel-wildix .subtitle {
+    font-size: 1.2rem;
+  }
 }
 </style>

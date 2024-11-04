@@ -1,5 +1,5 @@
 <template>
-  <section class="integrations-xbees">
+  <section id="integrations-xbees" class="integrations-xbees">
     <h2>Intégrations X-Bees</h2>
     <p class="subtitle">À déployer en fonction de vos besoins :</p>
     <div class="carousel-container">
@@ -54,23 +54,21 @@ export default {
 .integrations-xbees {
   padding: 2rem;
   padding-top: 6rem;
-  padding-bottom: 8rem; /* Ajout de padding en bas */
-  font-family: 'Poppins', sans-serif; /* Utilisation de la police Poppins */
+  padding-bottom: 8rem;
+  font-family: 'Poppins', sans-serif;
 }
 
 .integrations-xbees h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
   text-align: center;
-  font-family: 'Poppins', sans-serif; /* Utilisation de la police Poppins */
 }
 
 .integrations-xbees .subtitle {
   text-align: center;
   margin-bottom: 6rem;
-  font-size: 2rem;
-  color: #007bff; /* Couleur bleue spécifique */
-  font-family: 'Poppins', sans-serif; /* Utilisation de la police Poppins */
+  font-size: 1.5rem;
+  color: #007bff;
 }
 
 /* Style pour le carrousel */
@@ -92,7 +90,7 @@ export default {
 }
 
 .carousel-slide {
-  min-width: calc(100% / 3); /* Ajuster pour 3 images visibles */
+  min-width: calc(100% / 3);
   box-sizing: border-box;
   padding: 0 5px;
   display: flex;
@@ -100,9 +98,9 @@ export default {
 }
 
 .carousel-slide img {
-  max-width: 100%; /* Ajuster la largeur maximale de l'image */
-  max-height: 120px; /* Limiter la hauteur des images */
-  object-fit: contain; /* Garder les proportions sans déformation */
+  max-width: 100%;
+  max-height: 120px;
+  object-fit: contain;
   border-radius: 10px;
   display: block;
 }
@@ -120,7 +118,6 @@ export default {
   z-index: 10;
   border-radius: 50%;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  font-family: 'Poppins', sans-serif; /* Utilisation de la police Poppins */
 }
 
 .carousel-button:hover {
@@ -133,5 +130,37 @@ export default {
 
 .carousel-button.next {
   right: 0;
+}
+
+/* Media queries pour la réactivité */
+@media (max-width: 768px) {
+  .carousel-slide {
+    min-width: calc(100% / 2);
+  }
+
+  .integrations-xbees .subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-slide {
+    min-width: 100%;
+  }
+
+  .carousel-button {
+    width: 30px;
+    height: 30px;
+  }
+
+  .integrations-xbees h2 {
+    font-size: 1.5rem;
+  }
+
+  .integrations-xbees .subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
 }
 </style>

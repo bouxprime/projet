@@ -1,5 +1,5 @@
 <template>
-  <section class="x-bees-features">
+  <section id="x-bees-features" class="x-bees-features">
     <h2>Fonctionnalités avancées de X-Bees</h2>
     <div class="x-bees-hexagon-container">
       <div class="x-bees-row">
@@ -85,6 +85,7 @@ export default {
 .x-bees-row {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .x-bees-hex {
@@ -123,5 +124,47 @@ export default {
 .central-logo {
   max-width: 100px;
   height: auto;
+}
+
+/* Media queries pour la réactivité */
+@media (max-width: 768px) {
+  .x-bees-hex {
+    width: 150px;
+    height: 173px;
+    margin: -15px 3px;
+  }
+
+  .x-bees-hex h3 {
+    font-size: 1rem;
+  }
+
+  .x-bees-hex p {
+    font-size: 0.8rem;
+  }
+
+  .central-logo {
+    max-width: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .x-bees-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .x-bees-hex {
+    width: 180px;
+    height: 207px;
+    margin: 10px 0;
+  }
+
+  .x-bees-hex h3 {
+    font-size: 1rem;
+  }
+
+  .x-bees-hex p {
+    font-size: 0.8rem;
+  }
 }
 </style>

@@ -22,10 +22,10 @@
       <div class="solution-voip-toc">
         <h2>Table des matières</h2>
         <ul>
-          <li><a href="#introduction" @click.prevent="smoothScroll('#introduction')">Introduction</a></li>
-          <li><a href="#transformations" @click.prevent="smoothScroll('#transformations')">Transformations numériques</a></li>
-          <li><a href="#solutions" @click.prevent="smoothScroll('#solutions')">Solutions adéquates</a></li>
-          <li><a href="#reseau-partenaires" @click.prevent="smoothScroll('#reseau-partenaires')">Réseau de partenaires</a></li>
+          <li><a href="#art-project" @click.prevent="smoothScroll('#art-project')">Introduction</a></li>
+          <li><a href="#processus-alezia" @click.prevent="smoothScroll('#processus-alezia')">Le processus ALEZIA</a></li>
+          <li><a href="#approach" @click.prevent="smoothScroll('#approach')">Une approche personnalisée</a></li>
+          <li><a href="#audit-features" @click.prevent="smoothScroll('#audit-features')">Audit & Accompagnement</a></li>
         </ul>
       </div>
     </section>
@@ -148,5 +148,57 @@ export default {
   line-height: 1.8;
   z-index: 2;
   color: #000;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .main-section {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .left-content {
+    flex: 1;
+    padding-bottom: 2rem;
+  }
+
+  .solution-voip-toc {
+    position: relative;
+    top: 0;
+    align-self: stretch;
+    width: 100%;
+    padding: 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .solution-voip-toc h2 {
+    font-size: 1.25rem;
+  }
+
+  .solution-voip-toc a {
+    padding: 0.5rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.75rem;
+  }
+
+  .ma-section p {
+    font-size: 0.875rem;
+  }
+
+  .solution-voip-toc h2 {
+    font-size: 1.1rem;
+  }
+
+  .solution-voip-toc a {
+    font-size: 0.875rem;
+    padding: 0.5rem;
+  }
 }
 </style>

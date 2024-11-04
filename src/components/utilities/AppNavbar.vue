@@ -9,8 +9,8 @@
       <ul :class="{'nav-links': true, 'open': isMenuOpen, 'about-page': isAboutPage && !isScrolled, 'contact-page': isContactPage && !isScrolled, 'services-page': isServicesPage && !isScrolled}">
         <li><router-link to="/" @click="toggleMenu" :class="{'active-link': isActive('/') && isHomePage}">Home</router-link></li>
         <li class="dropdown">
-          <a @click="toggleDropdown('telephonie')" @mouseover="showDropdown('telephonie')" :class="{'active-link': isActive('/solution') || isActive('/integration') || isActive('/x-bees') || isActive('/x-hopper') || isActive('/alezia-studio')}">Téléphonie</a>
-          <ul v-if="dropdowns.telephonie" class="dropdown-menu">
+          <a :class="{'active-link': isActive('/solution') || isActive('/integration') || isActive('/x-bees') || isActive('/x-hopper') || isActive('/alezia-studio')}">Téléphonie</a>
+          <ul class="dropdown-menu">
             <li class="dropdown-item"><router-link to="/solution" @click="toggleMenu">Solutions</router-link></li>
             <li class="dropdown-item"><router-link to="/integration" @click="toggleMenu">Intégrations</router-link></li>
             <li class="dropdown-item"><router-link to="/x-bees" @click="toggleMenu">X-bees</router-link></li>
@@ -19,8 +19,8 @@
           </ul>
         </li>
         <li class="dropdown">
-          <a @click="toggleDropdown('it')" @mouseover="showDropdown('it')" :class="{'active-link': isActive('/cloud') || isActive('/conseils') || isActive('/cybersecurite') || isActive('/services-manage') || isActive('/materiel')}">IT</a>
-          <ul v-if="dropdowns.it" class="dropdown-menu">
+          <a :class="{'active-link': isActive('/cloud') || isActive('/conseils') || isActive('/cybersecurite') || isActive('/services-manage') || isActive('/materiel')}">IT</a>
+          <ul class="dropdown-menu">
             <li class="dropdown-item"><router-link to="/cloud" @click="toggleMenu">Cloud</router-link></li>
             <li class="dropdown-item"><router-link to="/conseils" @click="toggleMenu">Conseils</router-link></li>
             <li class="dropdown-item"><router-link to="/cybersecurite" @click="toggleMenu">Cybersécurité</router-link></li>
@@ -81,15 +81,6 @@ export default {
     },
     toggleMenu() {
       this.isMenuOpen = !this.isMenuOpen;
-    },
-    toggleDropdown(dropdown) {
-      this.dropdowns[dropdown] = !this.dropdowns[dropdown];
-    },
-    showDropdown(dropdown) {
-      this.dropdowns[dropdown] = true;
-    },
-    hideDropdown(dropdown) {
-      this.dropdowns[dropdown] = false;
     },
     handlePhoneClick() {
       console.log("Phone button clicked!");
@@ -325,11 +316,12 @@ nav.services-page .nav-links a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     width: 100vw;
     transform: translateX(100%);
     transition: transform 0.3s ease-in;
     box-sizing: border-box;
+    overflow-y: auto;
     overflow-x: hidden;
   }
   .nav-links.open {
@@ -339,11 +331,14 @@ nav.services-page .nav-links a {
   .nav-links a {
     color: black;
     margin: 15px 0;
+    font-size: 0.9em;
   }
   .dropdown-menu {
     position: static;
+    display: block; /* Always display dropdowns in mobile mode */
     box-shadow: none;
     padding: 0;
+    margin-top: 0.5em;
   }
   .dropdown-item {
     margin: 0.5em 0;
@@ -352,4 +347,5 @@ nav.services-page .nav-links a {
     display: block;
   }
 }
+
 </style>

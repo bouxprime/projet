@@ -1,5 +1,5 @@
 <template>
-  <section class="art-project">
+  <section id="art-project" class="art-project">
     <div class="content">
       <div class="image">
         <img src="@/assets/à-propos-alezia.jpg" alt="Project Image" />
@@ -29,7 +29,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Poppins', sans-serif; /* Appliquer la police Poppins */
+  font-family: 'Poppins', sans-serif;
 }
 
 .content {
@@ -58,7 +58,7 @@ export default {
 h2 {
   font-size: 1.8rem;
   margin-bottom: 1rem;
-  color: #007BFF; /* Couleur bleue changée */
+  color: #007BFF;
 }
 
 p {
@@ -75,5 +75,49 @@ p {
   color: #333;
   max-width: 900px;
   text-align: justify;
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image {
+    width: 100%;
+    text-align: center;
+  }
+
+  .text {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .closing-text {
+    padding: 1rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .art-project {
+    padding: 1rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
 }
 </style>

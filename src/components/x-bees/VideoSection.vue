@@ -1,5 +1,5 @@
 <template>
-  <section class="video-section">
+  <section id ="video-section" class="video-section">
     <h2>Découvrez X-Bees en Vidéo</h2>
     <div class="video-container">
       <iframe src="https://www.youtube.com/embed/6bXZX6C4FjM" frameborder="0" allowfullscreen></iframe>
@@ -44,9 +44,8 @@ export default {
 }
 
 .video-container {
-  width: 100%;
-  max-width: 900px;
-  aspect-ratio: 16 / 9;
+  width: 768px;
+  height: 432px;
   background-color: #ddd;
   display: flex;
   justify-content: center;
@@ -76,6 +75,12 @@ export default {
 
   .video-section h2 {
     font-size: 1.75rem;
+  }
+
+  .video-container {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
   }
 }
 

@@ -1,5 +1,5 @@
 <template>
-  <section class="cybersecurity">
+  <section id="partner" class="cybersecurity">
     <h2 class="cybersecurity-title">ALEZIA : Votre partenaire en Cybersécurité</h2>
 
     <!-- Section 1 -->
@@ -64,7 +64,7 @@ export default {
   padding: 2rem;
   background-color: #f9f9f9;
   overflow: hidden;
-  text-align: center; /* Aligner tout le contenu, y compris le titre */
+  text-align: center;
 }
 
 .cybersecurity-title {
@@ -72,9 +72,9 @@ export default {
   color: #333;
   margin-bottom: 1.5rem;
   position: relative;
-  display: inline-block; /* Assurer que la largeur du titre soit ajustée au texte */
-  margin-left: auto; /* Centrer le titre */
-  margin-right: auto; /* Centrer le titre */
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .cybersecurity-title::after {
@@ -87,11 +87,11 @@ export default {
 }
 
 .sub-section-title,
-.vulnerability-title { 
-  font-size: 2rem; 
-  color: #333; 
-  margin-bottom: 1.5rem; 
-  text-align: center; 
+.vulnerability-title {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 .additional-content {
@@ -141,5 +141,38 @@ export default {
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;
+  }
+
+  .text-content,
+  .image-container {
+    width: 100%;
+  }
+
+  .text-content {
+    text-align: center;
+  }
+
+  .additional-content {
+    padding: 2rem 1rem;
+  }
+
+  .cybersecurity-title {
+    font-size: 2rem;
+  }
+
+  .sub-section-title,
+  .vulnerability-title {
+    font-size: 1.5rem;
+  }
+
+  .text-content p {
+    font-size: 16px;
+  }
 }
 </style>

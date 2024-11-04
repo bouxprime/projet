@@ -223,6 +223,7 @@ button.submit-button:hover {
   .contact-container {
     flex-direction: column;
     align-items: flex-start;
+    padding: 20px;
   }
 
   .contact-left,
@@ -238,51 +239,51 @@ button.submit-button:hover {
 
 @media (max-width: 768px) {
   h1 {
-    font-size: 26px;
+    font-size: 22px;
   }
 
   ul {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   button.submit-button {
-    font-size: 1.4em;
+    font-size: 1.1em;
   }
 
   .form-wrapper {
-    padding: 40px;
+    padding: 20px;
   }
 
   input[type="text"],
   input[type="email"],
   select,
   textarea {
-    padding: 20px;
+    padding: 12px;
   }
 }
 
 @media (max-width: 480px) {
   h1 {
-    font-size: 28px;
-  }
-
-  ul {
     font-size: 20px;
   }
 
+  ul {
+    font-size: 14px;
+  }
+
   .form-wrapper {
-    padding: 50px;
+    padding: 15px;
   }
 
   input[type="text"],
   input[type="email"],
   select,
   textarea {
-    padding: 25px;
+    padding: 10px;
   }
 
   button.submit-button {
-    font-size: 1.6em;
+    font-size: 1em;
   }
 }
 </style>

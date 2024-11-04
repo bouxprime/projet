@@ -15,15 +15,6 @@
       <p class="integrations-text">Nos intégrations disponibles</p>
     </section>
 
-    <!-- Section: Classements -->
-    <section class="classifications">
-      <div class="classification-item">ALL</div>
-      <div class="classification-item">hopital</div>
-      <div class="classification-item">logiciel</div>
-      <div class="classification-item">hardware</div>
-      <div class="classification-item">carrière</div>
-    </section>
-
     <!-- Grille des cadres gris -->
     <div class="integrations-grid">
       <div class="integration-item">
@@ -130,7 +121,6 @@ body {
   justify-content: center; /* Centrer verticalement */
   align-items: center; /* Centrer horizontalement */
   padding: 0 2rem;
-  background-image: url('@/assets/BK-logo.png'); /* Image de fond comme dans le code d'inspiration */
   background-size: 550px; /* Ajuster la taille de l'image */
   background-position: bottom right; /* Positionner l'image en bas à droite */
   background-repeat: no-repeat; /* Empêcher la répétition de l'image */
@@ -170,42 +160,23 @@ body {
   font-weight: bold;
 }
 
-/* Section de classifications */
-.classifications {
-  display: flex;
-  justify-content: center; /* Centrer les boutons au centre de la page */
-  gap: 2rem; /* Espacement entre les boutons */
-  margin-bottom: 2rem;
-}
-
-.classification-item {
-  padding: 0.5rem 1rem;
-  background-color: transparent;
-  color: #333;
-  text-align: center;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.classification-item:hover {
-  color: #007bff; /* Changer la couleur du texte au survol */
-}
-
 /* Grille des cadres gris */
 .integrations-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* Grille de 5 colonnes */
+  grid-template-columns: repeat(5, 1fr); /* Grille de 5 colonnes pour les grands écrans */
   gap: 1rem; /* Espace entre les éléments de la grille */
   width: 100%;
   justify-items: center; /* Centrer les éléments horizontalement */
   align-items: center; /* Centrer les éléments verticalement */
+  padding: 0 2rem;
 }
 
 .integration-item {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 150px; /* Largeur fixe pour chaque élément contenant l'image */
+  width: 100%; /* Largeur à 100% du conteneur */
+  max-width: 150px;
   height: 150px; /* Hauteur fixe pour chaque élément contenant l'image */
   overflow: hidden; /* Masquer tout débordement d'image */
 }
@@ -216,5 +187,45 @@ body {
   max-height: 100%; /* Limitez la hauteur maximale à celle du conteneur */
   object-fit: contain; /* Maintient les proportions tout en remplissant le conteneur */
   border-radius: 10px; /* Coins arrondis pour les images */
+}
+
+/* Media Queries pour réactivité */
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 4rem; /* Augmentation de l'espacement pour compenser davantage la navbar */
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero-text {
+    text-align: center;
+    padding: 0 1rem;
+  }
+  .integrations-text {
+    font-size: 2rem;
+  }
+  .integrations-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    height: auto;
+    padding: 8rem 1rem 2rem; /* Augmentation de l'espacement en haut pour compenser davantage la navbar */
+  }
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+  .hero-text p {
+    font-size: 1rem;
+  }
+  .integrations-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+  .integration-item {
+    max-width: 120px;
+    height: 120px;
+  }
 }
 </style>

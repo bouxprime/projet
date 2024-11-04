@@ -15,12 +15,13 @@
         </section>
       </div>
       <!-- Partie de droite avec la table des matières -->
-      <div class="solution-voip-toc" style="align-self: center; margin-top: auto; margin-bottom: auto;">
+      <div class="solution-voip-toc">
         <h2>Table des matières</h2>
         <ul>
-          <li><a href="#introduction" @click.prevent="smoothScroll('#introduction')">Introduction à X-Bees</a></li>
           <li><a href="#x-bees-features" @click.prevent="smoothScroll('#x-bees-features')">Fonctionnalités avancées de X-Bees</a></li>
-          <li><a href="#ai-tools" @click.prevent="smoothScroll('#ai-tools')">Outils d'Intelligence Artificielle</a></li>
+          <li><a href="#integrations-xbees" @click.prevent="smoothScroll('#integrations-xbees')">Intégrations X-Bees</a></li>
+          <li><a href="#x-bees" @click.prevent="smoothScroll('#x-bees')">X-Bees Features</a></li>
+          <li><a href="#video-section" @click.prevent="smoothScroll('#video-section')">Découvrez X-Bees en Vidéo</a></li>
         </ul>
       </div>
     </section>
@@ -156,5 +157,55 @@ export default {
   line-height: 1.8;
   z-index: 2;
   color: #000;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .main-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+  }
+
+  .solution-voip-toc {
+    position: relative;
+    top: auto;
+    width: 100%;
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .solution-voip-toc h2 {
+    font-size: 1.25rem;
+  }
+
+  .solution-voip-toc a {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.75rem;
+  }
+
+  .ma-section p {
+    font-size: 0.875rem;
+  }
+
+  .solution-voip-toc ul {
+    gap: 1.5rem;
+  }
+
+  .solution-voip-toc a {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+  }
 }
 </style>

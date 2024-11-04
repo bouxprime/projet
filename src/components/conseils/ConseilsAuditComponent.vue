@@ -1,5 +1,5 @@
 <template>
-  <section class="audit-features">
+  <section id="audit-features" class="audit-features">
     <h2>Audit & Accompagnement</h2> <!-- Titre de la section -->
 
     <div class="features-container">
@@ -110,6 +110,18 @@ export default {
   .features-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
+  }
+}
+
+/* Ajustement pour les très petits écrans */
+@media (max-width: 480px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .feature-box {
+    padding: 1.5rem;
   }
 }
 </style>

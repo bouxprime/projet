@@ -1,7 +1,7 @@
 <template>
   <section class="what-we-do">
     <div class="container">
-      <div class="content">
+      <div class="content with-border-static-position">
         <h2>Nos services</h2>
         <p>Chez <strong>Alezia</strong>, nous proposons des solutions informatiques et de téléphonie VoIP pour accompagner avec précision les entreprises dans leur croissance. Avec notre expertise, nous garantissons des services de haute qualité pour répondre à tous vos besoins technologiques.</p>
       </div>
@@ -12,12 +12,10 @@
         </div>
 
         <!-- Navigation Arrows -->
-<div class="navigation">
-  <button id="prev" class="arrow">‹</button> <!-- Use the '‹' symbol -->
-  <button id="next" class="arrow">›</button> <!-- Use the '›' symbol -->
-</div>
-
-
+        <div class="navigation">
+          <button id="prev" class="arrow">‹</button> <!-- Use the '‹' symbol -->
+          <button id="next" class="arrow">›</button> <!-- Use the '›' symbol -->
+        </div>
 
         <div class="cards">
           <!-- First Set: Téléphonie -->
@@ -44,7 +42,7 @@
           </div>
           <div class="card">
             <router-link :to="{ name: 'XHopperPage' }">
-              <div class="card-icon">📡</div>
+              <div class="card-icon">🛡</div>
               <h3>X-Hoppers</h3>
               <p>Optimisez votre réseau téléphonique avec X-Hopper.</p>
             </router-link>
@@ -99,7 +97,6 @@
   </section>
 </template>
 
-
 <script>
 export default {
   name: 'WhatWeDo',
@@ -145,7 +142,7 @@ export default {
   padding: 0; /* Remove padding to eliminate extra space */
   text-align: left;
   background: #efeded;
-  margin-top: 0;
+  margin-top: 50px; /* Ajouter de l'espace au-dessus de toute la section */
   display: flex;
   justify-content: center;
   background-image: url('@/assets/test.png'); /* Chemin vers votre image */
@@ -170,6 +167,21 @@ export default {
   padding: 20px; /* Ajout de padding pour le texte */
   font-family: 'Poppins', sans-serif; /* Apply Poppins font */
   padding-top: 150px; /* Add padding to push the text down */
+}
+
+.with-border-static-position {
+  border: 2px solid #fff; /* Cadre blanc */
+  padding: 10px 20px; /* Réduire le padding en haut et en bas, garder 20px sur les côtés */
+  border-radius: 8px; /* Arrondir les coins du cadre */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optionnel : ajouter une ombre pour plus d'élégance */
+  background-color: #fff; /* Fond blanc */
+}
+
+.what-we-do::before {
+  content: "";
+  display: block;
+  height: 50px;
+  background: #efeded; /* Même couleur que l'arrière-plan de la section */
 }
 
 .what-we-do h2 {
@@ -285,7 +297,6 @@ export default {
   margin-bottom: 20px; /* Adjust margin to ensure spacing above the cards */
 }
 
-
 /* Additional CSS for handling visibility */
 .cards.showing-second-set .card.hidden {
   display: block;
@@ -294,7 +305,6 @@ export default {
 .cards.showing-second-set .card:not(.hidden) {
   display: none;
 }
-
 
 @media (max-width: 1024px) {
   .cards {

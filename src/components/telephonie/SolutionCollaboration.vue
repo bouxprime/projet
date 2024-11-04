@@ -77,7 +77,7 @@
             <p>Un des atouts majeurs de Wildix Collaboration est l'affichage en temps réel de la disponibilité des collaborateurs. Les utilisateurs peuvent voir si un collègue est disponible, en réunion, absent, ou occupé. Cela permet de planifier la communication plus efficacement et d'éviter d'interrompre les collaborateurs pendant des moments inopportuns. La visibilité sur le statut de chaque personne aide également à réduire les délais d'attente pour des réponses ou des prises de décision.</p>
           </div>
           <div class="image-container animate-scale-up">
-            <img src="@/assets/collab/collab6.jpg" alt="Présence et disponibilité" class="overflow-image" />
+            <img src="@/assets/collab/collab6.jpg" alt="Présence et disponibilité" class="overflow-image section-6-image" />
           </div>
         </div>
       </section>
@@ -240,6 +240,7 @@ body {
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
   transform: perspective(1000px) rotateY(-10deg);
   transition: transform 1s ease;
+  background-color: white;
 }
 
 .image-container.rotate-left img {
@@ -255,6 +256,10 @@ body {
 }
 
 .image-container img.reduced-size {
+  max-width: 70%;
+}
+
+.image-container img.section-6-image {
   max-width: 70%;
 }
 

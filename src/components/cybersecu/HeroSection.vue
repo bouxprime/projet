@@ -16,9 +16,9 @@
       <div class="solution-voip-toc" style="align-self: center; margin-top: auto; margin-bottom: auto;">
         <h2>Table des matières</h2>
         <ul>
-          <li><a href="#introduction" @click.prevent="smoothScroll('#introduction')">Introduction à la cybersécurité</a></li>
-          <li><a href="#importance" @click.prevent="smoothScroll('#importance')">L'importance de la cybersécurité</a></li>
-          <li><a href="#solutions" @click.prevent="smoothScroll('#solutions')">Nos solutions de cybersécurité</a></li>
+          <li><a href="#service" @click.prevent="smoothScroll('#service')">Nos services</a></li>
+          <li><a href="#partner" @click.prevent="smoothScroll('#partner')">ALEZIA : Votre partenaire en Cybersécurité</a></li>
+          <li><a href="#solutions" @click.prevent="smoothScroll('#solutions')">Anticipez les Menaces Informatiques </a></li>
         </ul>
       </div>
     </section>

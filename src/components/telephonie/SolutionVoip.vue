@@ -107,11 +107,18 @@ export default {
 <style scoped>
 .main-section {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 2rem;
   align-items: flex-start;
   background: linear-gradient(180deg, #cde8ff 0%, #a5d3ff 100%);
-  padding: 2rem 2rem 0;
+  padding: 2rem;
+}
+
+@media (min-width: 768px) {
+  .main-section {
+    flex-direction: row;
+    padding: 2rem 2rem 0;
+  }
 }
 
 .left-content {
